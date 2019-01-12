@@ -50,10 +50,10 @@ export default {
     .shop {
         display: flex;
         flex-wrap: nowrap;
-        height: 80px;
-        padding: 10px 10px;
-        border-bottom: 1px solid #e5e5e5;
-        font-size: 12px;
+        height: .8rem;
+        padding: .1rem .1rem;
+        border-bottom: .01rem solid #e5e5e5;
+        font-size: .12rem;
         font-family: '微软雅黑';
     }
     .shop-img {
@@ -65,82 +65,82 @@ export default {
     }
     .shop-info {
         flex: 4;
-        margin-left: 10px;
+        margin-left: .1rem;
         text-align: left;
     }
     .shop-honor__y {
         background: #FFDC00;
-        padding:1px 3px 0 1px;
+        padding:.01rem .03rem 0 .01rem;
         color: black;
-        font-size: 12px;
+        font-size: .12rem;
         font-family: '微软雅黑';
         font-weight: bold;
         align-items: baseline;
     }
     .shop-honor__r  {
         background: #FF2447;
-        padding:1px 3px 0 1px;
+        padding:.01rem .03rem 0 .01rem;
         color: white;
-        font-size: 12px;
+        font-size: .12rem;
         font-family: '微软雅黑';
         font-weight: bold;
         align-items: baseline;
     }
     .shop-title {
         display: inline-block;
-        width: 140px;
-        font-size: 13px;
+        width: 1.4rem;
+        font-size: .13rem;
         font-weight: bold;
         font-family: '微软雅黑';
-        margin-left: 5px;
+        margin-left: .05rem;
         overflow: hidden;
         text-overflow:ellipsis;
         white-space: nowrap;
         
     }
     .ivu-rate {
-        font-size: 12px!important;
+        font-size: .12rem!important;
     }
     .ivu-rate-star {
         margin-right: 0!important;
     }
     .rate {
         color: #FD730F;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: .05rem;
+        padding-right: .05rem;
     }
     .num {
         color: #666;
     }
     .delivery_Ontime {
         color: #298EEB;
-        border: 1px solid #298eeb;
-        padding-left: 2px;
-        padding-right: 3px;
+        border: .01rem solid #298eeb;
+        padding-left: .02rem;
+        padding-right: .03rem;
     }
     .delivery_Courier {
         background: #298EEB;
         color: white;
-        font-size: 10px;
-        margin-right: 3px;
-        padding-left: 2px;
-        padding-right: 3px;
+        font-size: .1rem;
+        margin-right: .03rem;
+        padding-left: .02rem;
+        padding-right: .03rem;
     }
     .delivery {
-        font-size: 13px;
+        font-size: .13rem;
     }
     .distance {
         color: #999;
     }
     .minutes {
         color: #3F9AEE;
-        padding-left: 3px;
+        padding-left: .03rem;
     }
     .assure {
-        padding: 1px 2px;
-        margin-right: 3px;
-        border: 1px solid #e5e5e5;
-        font-size: 10px;
+        padding: .01rem .02rem;
+        margin-right: .03rem;
+        border: .01rem solid #e5e5e5;
+        font-size: .1rem;
         color: #999;
     }
 </style>

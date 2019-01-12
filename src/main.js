@@ -4,26 +4,22 @@ import VueRouter from 'vue-router';
 import router from './router';
 import store from './store';
 //vantui
-import { Card } from 'vant';
+// import { Card } from 'vant';
 //引入iview
 import 'iview/dist/styles/iview.css';
-import { Button, Table, Rate } from 'iview';
+import './assets/css/reset.css' //注意'./'一定要加不然会报错
+import { Button, Table, Rate, Cell, CellGroup, Card, Badge, Icon, Input} from 'iview';
 Vue.component('Button', Button);
 Vue.component('Table', Table);
 Vue.component('Rate', Rate);
 Vue.component('Card', Card);
-// Vue.component('CellGroup', CellGroup);
-// Vue.component('Cell', Cell);
-
-
-// Vue.component('Icon', Icon);
+Vue.component('CellGroup', CellGroup);
+Vue.component('Cell', Cell);
+Vue.component('Badge', Badge);
+Vue.component('Input', Input);
+Vue.component('Icon', Icon);
 //使用vant
 // Vue.use(Card);
-
-// const RouterConfig = {
-//   routes: Routers
-// };
-// const router = new VueRouter(RouterConfig);
 
 new Vue({
   router,

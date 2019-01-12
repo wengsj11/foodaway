@@ -40,17 +40,17 @@
         clear: both;
     }
     .shop-top {
-        padding: 10px 10px;
+        padding: .1rem .1rem;
         /* 背景特效 */
         background: url('http://fuss10.elemecdn.com/8/e4/294f46322e8ccd3e8f25ca8261f0djpeg.jpeg?imageMogr/format/webp/thumbnail/750x/thumbnail/!40p/blur/50x40/');
-        font-size: 12px;
+        font-size: .12rem;
         font-family: '微软雅黑';
         color: white;
     }
     .shop {
         display: flex;
         flex-wrap: nowrap;
-        height: 60px;
+        height: .6rem;
         border:0;
         padding: 0;
     }
@@ -63,23 +63,23 @@
     }
     .shop-info {
         flex: 4;
-        margin-left: 10px;
+        margin-left: .1rem;
         text-align: left;
-        font-size: 10px;
+        font-size: .1rem;
         font-family: "微软雅黑";
     }
     .shop-title {
         display: inline-block;
         width: 100%;
-        font-size: 14px;
+        font-size: .14rem;
         font-weight: bold;
     }
     .new {
-        padding-left: 1px;
-        padding-right: 1px;
+        padding-left: .01rem;
+        padding-right: .01rem;
         background: #6EBE3E;
     }
     .notice-info {
-        margin-left: 5px;
+        margin-left: .05rem;
     }
 </style>

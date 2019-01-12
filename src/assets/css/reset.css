@@ -1,0 +1,7 @@
+/*重置样式*/
+        h1,h2,h3,h4,h5,h6{margin:0;font-weight:normal;font-size:100%;}
+        p,dl,dd{margin:0;}ul,ol{margin:0;padding: 0;list-style: none;}a {text-decoration: none;}
+        img {border: 0;vertical-align: bottom;}
+		.fl{float:left;}
+		.fr{float: right;}
+        .clearfix::after,.clearfix::before{content:'';display:table;clear:both;}
