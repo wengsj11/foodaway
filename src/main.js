@@ -8,8 +8,10 @@ import store from './store';
 import { Card } from 'vant';
 // 引入iview
 import 'iview/dist/styles/iview.css';
-import { Button, Table, Rate ,Layout} from 'iview';
-
+import { Button, Table, Rate } from 'iview';
+import { Content, Footer, Header,Layout } from 'iview';
+import iView from 'iview';
+Vue.use(iView);
 Vue.component('Layout', Layout);
 Vue.component('Button', Button);
 Vue.component('Card', Card);

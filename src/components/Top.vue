@@ -1,14 +1,14 @@
 
 <template>
-  <Header>
+  <div id="header">
     <router-link to="/home" @click.native="goBack()">
-      <Icon :style="{marginLeft: '.2rem',float:'left'}" :type="iconType" size=".36rem" color="#fff"></Icon>
+      <Icon :style="{marginLeft: '.2rem',float:'left'}" :type="iconType" size="32" color="#fff"></Icon>
     </router-link>
     <slot></slot>
-    <router-link :to="rightPath" v-if="rightPath"  :style="{marginRight: '.2rem',float:'right'}">
+    <router-link :to="rightPath" v-if="rightPath"  :style="{marginRight: '.2rem',float:'right',color:'#fff',fontSize:'.25rem'}">
       <slot name="right"></slot>
     </router-link>
-  </Header>
+  </div>
 </template>
 <script>
 /* eslint-disable */
@@ -41,7 +41,7 @@ export default {
 }
 </script>
 <style scoped>
-  Header{
+  #header{
     display: flex;
     justify-content: space-between;
     align-items: center;
