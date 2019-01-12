@@ -1,31 +1,34 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Test</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <Layout id="app">
+    <Content>
+    <router-view class="view"></router-view>
+    </Content>
+  </Layout>
 </template>
+<script>
+/* eslint-disable */
+
+export default {
+
+}
+</script>
 
 <style>
+html, body{
+  height: 100%;
+}
 #app {
+  position: relative;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  max-width: 670px;
+  margin: 0 auto;
+  height: 100%;
 }
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.view, .child-view{
+  height: 100%;
 }
 </style>

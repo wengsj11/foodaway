@@ -1,28 +1,31 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import About from './views/About.vue';
-import ShopList from './components/ShopList.vue';
-import ShopHeader from './components/ShopHeader.vue';
-import Shop from './views/Shop.vue';
-import perfile from './views/perfile.vue';
 import Login from './views/Login.vue';
-import Search from './views/Search.vue';
-import goodList from './components/goodList.vue';
 
 
+import Profile from './views/perfile.vue';
 
 Vue.use(Router);
-
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      
+      name: 'home',
+      component: Home,
+    },
+    {
+      path: '/perfile',
+      name: 'perfile',
+      component: Profile,
+    },
+    {
+      path: '/login',
       name: 'goodList',
       component: Login,
-    },
+    }
     // {
     //   path: '/about',
     //   name: 'about',

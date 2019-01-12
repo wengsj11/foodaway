@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 <template>
     <div>
         <div class="top">
