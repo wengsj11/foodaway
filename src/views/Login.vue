@@ -53,7 +53,19 @@ export default {
     .hd .title{font-size:1.56rem; }
     .hd .msgload{font-size: 1.25rem;margin-right: 0.5rem;}
     /* 短信 */
-    #phone{margin-top: 1.56rem;position: relative;margin-bottom: 0.1rem}
+    #phone{margin-top: 1.56rem;position: relative;margin-bottom: 0.1rem;}
+      ::-webkit-input-placeholder {
+        color: #999;
+        font-size: 1.16rem;
+    }
+    ::-moz-placeholder {
+        color: #999;
+        font-size: 1.16rem;
+    }
+    :-ms-input-placeholder {
+        color: #999;
+        font-size: 1.16rem;
+    }
     #getcode{width: 10.625rem;height: 3.44rem;color:#9f9d9d;position: absolute;right: .5rem;top:12.5rem;z-index: 999;border:0;border-radius: .3rem;font-size: 1.56rem;}
     /* 账号密码 */
     .usr{display: none;}
