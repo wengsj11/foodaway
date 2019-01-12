@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
     <!-- 头部 -->
     <!-- 个人信息 -->
