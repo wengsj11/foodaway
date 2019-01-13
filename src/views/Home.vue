@@ -4,7 +4,7 @@
     <Top rightPath="/login" icon="search">
       福建农林大学
       <template slot="right" >
-        登录|注册
+        登录 | 注册
       </template>
     </Top>
     <Tabbar></Tabbar>

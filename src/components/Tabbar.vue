@@ -1,15 +1,9 @@
 <template>
   <Row type="flex" id="footer">
-      <Col span="6" order="4">
-        <router-link to="/perfile">
-          <Icon type="ios-home" size="20"/>
-            <p>我的</p>
-        </router-link>
-      </Col>
-      <Col span="6" order="3">
+      <Col span="6" order="1">
         <router-link to="/">
           <Icon type="ios-home" size="20"/>
-            <p>订单</p>
+            <p>外卖</p>
         </router-link>
       </Col>
       <Col span="6" order="2">
@@ -18,13 +12,19 @@
           <p>搜索</p>
         </router-link>
       </Col>
-      <Col span="6" order="1">
-        <router-link to="/home">
+      <Col span="6" order="3">
+        <router-link to="/">
           <Icon type="ios-home" size="20"/>
-            <p>外卖</p>
-        </div>
+          <p>订单</p>
         </router-link>
       </Col>
+      <Col span="6" order="4">
+        <router-link to="/perfile">
+          <Icon type="ios-home" size="20"/>
+            <p>我的</p>
+        </router-link>
+      </Col>
+      
   </Row>
 </template>
 <script>

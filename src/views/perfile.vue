@@ -1,6 +1,7 @@
 /* eslint-disable */
 <template>
     <div>
+        <Top>我的</Top>
         <div class="top">
         <!-- 头部 -->
         <!-- 个人信息 -->
@@ -13,7 +14,6 @@
                     <h3><Icon type="ios-phone-portrait" /><span class="phone">18060023333</span></h3>
                     <Icon type="ios-arrow-forward" />
                 </div>
-                
             </div>
         </div>
         <div class="pannel">
@@ -64,15 +64,21 @@
                 </Cell>
             </CellGroup>    
         </div>
+        <Tabbar></Tabbar>
     </div>
 </template>
 <script>
+import Top from '../components/Top';
+
 export default {
-     data () {
-            return {
-                switchValue: true
-            }
-        },
+  data () {
+    return {
+      switchValue: true
+    }
+  },
+  components:{
+      Top,
+  }
 }
 </script>
 
