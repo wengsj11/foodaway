@@ -1,8 +1,19 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+
 import Home from './views/Home.vue';
+import Takeouts from './views/subviews/Takeouts.vue';
+import Order from './views/subviews/Order.vue';
+import Find from './views/subviews/Find.vue';
+import Profile from './views/subviews/Profile.vue';
+
 import Login from './views/Login.vue';
-import Profile from './views/perfile.vue';
+import PwdLogin from './views/PwdLogin.vue';
+import CodeLogin from './views/CodeLogin.vue';
+
+import Shop from './views/Shop.vue';
+import Search from './views/Search.vue';
+import goodList from './components/goodList.vue';
 
 Vue.use(Router);
 export default new Router({
@@ -10,19 +21,63 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/index',
       name: 'home',
       component: Home,
-    },
-    {
-      path: '/perfile',
-      name: 'perfile',
-      component: Profile,
+      children: [
+        {
+          path: '/index',
+          name: 'takeouts',
+          component: Takeouts,
+        },
+        {
+          path: '/index/order',
+          name: 'order',
+          component: Order,
+        },
+        {
+          path: '/index/find',
+          name: 'find',
+          component: Find,
+        },
+        {
+          path: '/index/profile',
+          name: 'profile',
+          component: Profile,
+        },
+      ],
     },
     {
       path: '/login',
-      name: 'goodList',
+      name: 'login',
       component: Login,
+      children: [
+        {
+          path: '/login/pwd',
+          name: 'login',
+          component: PwdLogin,
+        },
+        {
+          path: '/login',
+          name: 'login',
+          component: CodeLogin,
+        },
+      ],
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search,
+    },
+    {
+      path: '/shop',
+      name: 'shop',
+      component: Shop,
+    },
+    {
+      path: '/goodList',
+      name: 'goodList',
+      component: goodList,
     },
   ],
 });

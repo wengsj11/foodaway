@@ -1,21 +1,21 @@
 
 <template>
-  <div id="header">
-    <router-link to="/home" @click.native="goBack()">
-      <Icon :style="{marginLeft: '.2rem',float:'left'}" :type="iconType" size="32" color="#fff"></Icon>
+  <mt-header :title="title">
+    <router-link :to="left.path" slot="left" v-if="left">
+      <mt-button :icon="left.icon">{{left.text}}</mt-button>
     </router-link>
-    <slot></slot>
-    <router-link :to="rightPath" v-if="rightPath"  :style="{marginRight: '.2rem',float:'right',color:'#fff',fontSize:'.25rem'}">
-      <slot name="right"></slot>
+    <router-link :to="right.path" slot="right" v-if="right">
+      <mt-button :icon="right.icon">{{right.text}}</mt-button>
     </router-link>
-  </div>
+  </mt-header>
 </template>
 <script>
 /* eslint-disable */
 import { Icon } from 'iview';
+
 export default {
   name: 'top',
-  props:['icon','title','rightPath'],
+  props:['title','left','right'],
   data(){
     return{
       iconType: "ios-arrow-back",
@@ -26,18 +26,6 @@ export default {
       this.$router.go(-1);
     }
   },
-  mounted(){
-    //设置左边的图标
-    if(this.$props.icon === 'search'){
-      this.iconType = "ios-search";
-    }
-    else {
-      this.iconType = "ios-arrow-back";
-    }
-  },
-  components:{
-    Icon,
-  }
 }
 </script>
 <style scoped>
@@ -53,6 +41,5 @@ export default {
   Header a{
     color:#fff;
   }
+  
 </style>
-
-
