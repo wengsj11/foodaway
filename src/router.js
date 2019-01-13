@@ -2,7 +2,10 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Login from './views/Login.vue';
-import Profile from './views/perfile.vue';
+import Shop from './views/Shop.vue';
+import Profile from './views/Perfile.vue';
+import Search from './views/Search.vue';
+import goodList from './components/goodList.vue'
 
 Vue.use(Router);
 export default new Router({
@@ -12,7 +15,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: Shop,
     },
     {
       path: '/perfile',

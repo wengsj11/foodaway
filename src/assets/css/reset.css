@@ -1,7 +1,27 @@
 /*重置样式*/
-        h1,h2,h3,h4,h5,h6{margin:0;font-weight:normal;font-size:100%;}
-        p,dl,dd{margin:0;}ul,ol{margin:0;padding: 0;list-style: none;}a {text-decoration: none;}
-        img {border: 0;vertical-align: bottom;}
-		.fl{float:left;}
-		.fr{float: right;}
-        .clearfix::after,.clearfix::before{content:'';display:table;clear:both;}
+body{margin:0;font:12px/1 Helvetica;}
+h1,h2,h3,h4,h5,h6{margin:0;font-size:100%;font-weight:normal;}
+p,dl,dd{ margin:0;}
+ul,ol{list-style:none;margin:0;padding:0;}
+a{text-decoration:none; color:#000;}
+em,i{ font-style:normal;}
+strong,b{ font-weight:normal;}
+img{border:none;vertical-align:bottom;}
+table{ border-collapse:collapse;}
+table th{font-weight:normal;}
+table th,table td{vertical-align:top; text-align:left;padding:0;}
+input{margin:0;padding:0;border:none;background:none;}
+textarea{ resize:none; overflow:auto;border:none;background:none;}
+.clearfix:before,.clearfix:after{content:"";display:table;clear:both;}
+a,button,input,textarea {
+    -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
+button,input,select,textarea {
+    -webkit-appearance:none; /*去掉默认的表单样式*/
+}
+.fl{float: left;}
+.fr{float: right;}
+body * {
+    -webkit-text-size-adjust: 100%!important;  /*禁止IOS调整字体大小*/
+}
+.page{max-width:7.5rem;margin:0 auto;}

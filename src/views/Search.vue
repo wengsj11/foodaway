@@ -1,12 +1,15 @@
 <template>
     <div class="search-page">
         <!-- 头部组件  -->
-        <div class="search">
-            <div class="search-input">
-                <Input suffix="ios-close" search enter-button="提交" placeholder="你是不是饿得慌" />
-                <!-- <Icon type="ios-close" class="icon"/> -->
-            </div>
-            
+         <Top rightPath="/login" icon="ios-arrow-back">
+            搜索
+        </Top>
+        <div class="search clearfix">
+            <!-- <Input suffix="ios-close" search enter-button="提交" placeholder="你是不是饿得慌" /> -->
+            <!-- <Icon type="ios-close" class="icon"/> -->
+            <Input v-model="value4" icon="ios-close" placeholder="ET,你是不是饿得慌" class="fl" />
+            <Button type="primary" class="fl" >提交</Button>
+
         </div>
         <div>
             <h2 class="title">商家</h2>
@@ -14,44 +17,57 @@
     </div>
 </template>
 <script>
+import Top from '../components/Top';
 export default {
-     
+     components:{
+         Top,
+     }
 }
 </script>
 
 <style>
 .search-page {
-    background: #f2f2f2;
     text-align: left;
-}
-.search {
-    padding: .1rem;
     background: #fff;
 }
-.search Input {
-    /* background: #F2F2F2; */
-    height: .3rem;
+.search {
+    width: 100%;
+    padding: .15rem;
+}
+.search .ivu-input-wrapper {
+    width: 77%;
+    height: .7rem;
+}
+.ivu-input-type .ivu-input-default {
+    font-size: .25rem!important;
+    font-weight: bold;
+    color: #666;
+}
+Input::placeholder {
+    font-size: .23rem;
 }
 .search-input {
     position: relative;
 }
-.ivu-input-wrapper .ivu-input-suffix {
-    position: absolute;
-    left: 70%;
-    top:0;
-    z-index: 3;
-}
-.ivu-input-wrapper .ivu-input-suffix .ivu-icon-ios-close {
-    color: #335691;
-    font-size: .2rem;
+.ivu-icon-ios-close::before {
+    font-size: .45rem;
     font-weight: bold;
+    color: #3E69AE;
+}
+.ivu-input-default {
+    background-color: #F2F2F2!important;
+}
+.ivu-btn-primary {
+    width: 20%;
+    margin-left: .1rem;
 }
 .title {
-    height: .35rem;
+    height: .7rem;
     padding-left: .15rem;
-    font-size: .14rem;
+    font-size: .3rem;
     color: #666;
-    font-family: "宋体";
-    line-height: .35rem;
+    font-family: "微软雅黑";
+    line-height: .6rem;
+    background: #F3F3F3;
 }
 </style>

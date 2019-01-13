@@ -45,28 +45,28 @@ export default {
 /* 布局样式 */
 /* 全局 */
     button{background: #44db5e;}
-    input{width:97%;height: 5.3rem;border: 0;font-size: 1.56rem;padding-left: 3%;margin-bottom: .2rem;}
+    input{width:97%;height: 1.3rem;border: 0;font-size: .25rem;padding-left: 3%;margin-bottom: .2rem;}
     .login{width: 100%;height: 100%;background:#f2f2f2;margin: 0;font-family: "微软雅黑";}
     /* 标题 */
     .hd{width:100%;height:80px;background: #298eeb;color: white;display: flex;justify-content: space-between;line-height: 5rem;}
     .left{width: 1rem ;height: 1rem ;background:#298eeb;border-left:.2rem solid white;border-bottom:.2rem solid white; transform:rotate(45deg);margin-left: .97rem;margin-top: 1.8rem;}
-    .hd .title{font-size:1.56rem; }
-    .hd .msgload{font-size: 1.25rem;margin-right: 0.5rem;}
+    .hd .title{font-size:.56rem; }
+    .hd .msgload{font-size: .25rem;margin-right: 0.5rem;}
     /* 短信 */
-    #phone{margin-top: 1.56rem;position: relative;margin-bottom: 0.1rem;}
+    #phone{margin-top: .36rem;position: relative;margin-bottom: .01rem;}
       ::-webkit-input-placeholder {
         color: #999;
-        font-size: 1.16rem;
+        font-size: .36rem;
     }
     ::-moz-placeholder {
         color: #999;
-        font-size: 1.16rem;
+        font-size: .36rem;
     }
     :-ms-input-placeholder {
         color: #999;
-        font-size: 1.16rem;
+        font-size: .36rem;
     }
-    #getcode{width: 10.625rem;height: 3.44rem;color:#9f9d9d;position: absolute;right: .5rem;top:12.5rem;z-index: 999;border:0;border-radius: .3rem;font-size: 1.56rem;}
+    #getcode{width: 3rem;height: 6rem;color:#9f9d9d;position: absolute;right: .5rem;top:.5rem;z-index: 999;border:0;border-radius: .03rem;font-size: 1.56rem;}
     /* 账号密码 */
     .usr{display: none;}
     #password{position: relative;}

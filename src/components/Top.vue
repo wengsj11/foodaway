@@ -2,7 +2,7 @@
 <template>
   <div id="header">
     <router-link to="/home" @click.native="goBack()">
-      <Icon :style="{marginLeft: '.2rem',float:'left'}" :type="iconType" size="32" color="#fff"></Icon>
+      <Icon :style="{marginLeft: '.2rem',float:'left',fontSize:'.45rem'}" :type="iconType" size="32" color="#fff"></Icon>
     </router-link>
     <slot></slot>
     <router-link :to="rightPath" v-if="rightPath"  :style="{marginRight: '.2rem',float:'right',color:'#fff',fontSize:'.25rem'}">
@@ -53,6 +53,7 @@ export default {
   Header a{
     color:#fff;
   }
+  
 </style>
 
 
