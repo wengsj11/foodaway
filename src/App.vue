@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <router-view class="child-view"></router-view>
+      <keep-alive>
+        <router-view class="child-view transitionBody"></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>
@@ -10,15 +12,24 @@
 export default {
   data() {
     return {
-      transitionName: 'slide-left',
+      // transitionName: 'slide-left',
+      transitionName: 'transitionLeft'
     }
   },
   watch: {
+    // '$route' (to, from) {
+    //   const toDepth = to.path.split('/').length
+    //   const fromDepth = from.path.split('/').length
+    //   this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+    // },
     '$route' (to, from) {
-      const toDepth = to.path.split('/').length
-      const fromDepth = from.path.split('/').length
-      this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
-    },
+      const arr = ['/index', '/shop', '/login', '/myPage']
+      const compare = arr.indexOf(to.path) > arr.indexOf(from.path)
+      this.transitionName = compare ? 'transitionLeft' : 'transitionRight'
+      // const toDepth = to.path.split('/').length
+      // const fromDepth = from.path.split('/').length
+      // this.transitionName = toDepth < fromDepth ? 'transitionLeft' : 'transitionRight'
+    }
   },
 }
 </script>
@@ -33,18 +44,20 @@ html, body{
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  max-width: 670px;
   margin: 0 auto;
   height: 100%;
 }
+.view{
+  padding-top: 40px;
+}
 .view, .child-view{
   height: 100%;
-  /* right: 0;
-  bottom: 0;
+  width: 100%;
+  position: absolute;
   left: 0;
-  position: absolute; */
+  right: 0;
+  top: 0;
 }
 .slide-left-enter,
 .slide-right-leave-active {
@@ -56,5 +69,21 @@ html, body{
 .slide-right-enter {
     -webkit-transform: translate(-500px, 0) ;
     transform: translate(-500px, 0) ;
+}
+.transitionBody{
+ transition: transform .5s linear; /*定义动画的时间和过渡效果*/
+}
+.transitionLeft-enter,
+.transitionRight-leave-active {
+  -webkit-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+  transform-origin: left;
+   /*当左滑进入右滑进入过渡动画*/
+}
+.transitionLeft-leave-active,
+.transitionRight-enter {
+  -webkit-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+  transform-origin: right;
 }
 </style>

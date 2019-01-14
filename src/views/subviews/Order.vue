@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Top title="订单"></Top>
+  <div class="view">
+    <Top title="订单" :fixed="true" ></Top>
     订单内容
   </div>
 </template>

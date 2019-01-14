@@ -1,12 +1,10 @@
 
 <template>
-  <mt-header :title="title">
+  <mt-header :title="title" :fixed="fixed">
     <router-link :to="left.path" slot="left" v-if="left">
       <mt-button :icon="left.icon">{{left.text}}</mt-button>
     </router-link>
-    <router-link :to="right.path" slot="right" v-if="right">
-      <mt-button :icon="right.icon">{{right.text}}</mt-button>
-    </router-link>
+    <mt-button :icon="right.icon" slot="right" v-if="right" @click="right.click">{{right.text}}</mt-button>
   </mt-header>
 </template>
 <script>
@@ -15,16 +13,10 @@ import { Icon } from 'iview';
 
 export default {
   name: 'top',
-  props:['title','left','right'],
+  props: ['title','left','right','fixed','search'],
   data(){
     return{
-      iconType: "ios-arrow-back",
     };
-  },
-  methods: {
-    goBack() {
-      this.$router.go(-1);
-    }
   },
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <mt-tabbar v-model="selected">
+  <mt-tabbar v-model="selected" fixed>
     <mt-tab-item id="/index">
       <img slot="icon" src="../assets/logo.png">
       外卖
@@ -22,7 +22,7 @@
 export default {
   data() {
     return {
-      selected: '外卖',
+      selected: '/index',
     };
   },
   watch: {

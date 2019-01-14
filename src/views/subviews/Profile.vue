@@ -1,9 +1,9 @@
 /* eslint-disable */
 <template>
-    <div class="page">
+    <div class="view">
+         <Top title="我的" :fixed="true" ></Top>
         <div class="top">
         <!-- 头部 -->
-         <Top title="我的"></Top>
         <!-- 个人信息 -->
             <div class="user">
                 <div class="user-via">
@@ -89,7 +89,7 @@ export default {
 .ivu-layout-content {
     height: 100%;
 }
-.page {
+.view {
     height: 100%;
     background: #F1F1F1;
 }

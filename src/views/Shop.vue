@@ -1,19 +1,35 @@
 <template>
-<!-- header -->
-    <div>
-        <header class="shop-top clearfix">
-               <div class="shop-img fl">
-                    <img src="https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg" />
-               </div>
-               <div class="shop-info fl">
-                   <span class="shop-title">bigbang韩国炸鸡(农大店)</span><br>
-                   <p class="middle">
-                    <span>商家配送 / </span>
-                    <span> 40分钟送达</span>
-                    <span>配送费￥5</span>
-                   </p>
-                   <span>公告:  欢迎光临,用餐高峰请提前下单,谢谢。</span>
-                   <Icon type="ios-arrow-forward" />
+    <div class="view" :style="{padding:'0'}">
+        <Top
+        :left="{path:'/index',icon:'back'}"
+        :right="{icon:'more',click:handleClick}"
+        :fixed="true"
+        :style="{background:'transparent'}"></Top>
+        <!-- <mt-header fixed :style="{background:'transparent'}">
+            <router-link to="/index" slot="left">
+                <mt-button icon="back"></mt-button>
+            </router-link>
+            <template  slot="right">
+                <router-link to="/search">
+                    <mt-button icon="search"></mt-button>
+                </router-link>
+                <mt-button icon="more"></mt-button>
+            </template>
+        </mt-header> -->
+        <!-- header -->
+        <header class="shop-top clearfix" :style="{paddingTop:'40px'}">
+            <div class="shop-img fl">
+                <img src="https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg" />
+            </div>
+            <div class="shop-info fl">
+                <span class="shop-title">bigbang韩国炸鸡(农大店)</span><br>
+                <p class="middle">
+                <span>商家配送 / </span>
+                <span> 40分钟送达</span>
+                <span>配送费￥5</span>
+                </p>
+                <span>公告:  欢迎光临,用餐高峰请提前下单,谢谢。</span>
+                <Icon type="ios-arrow-forward" />
             </div>
                <p class="notice clearfix">
                 <span class="new">新</span>
@@ -28,9 +44,9 @@
                 <li><Icon type="md-pricetag" class="icon_y"/>优惠</li>
                 <li class="active">热销榜<p class="badge"><span>2</span></p></li>
             </ul>
-            <div class="right">
+            <div class="right" >
                 <ul class="right_list">
-                    <li>
+                    <li v-for="i in 20" :key="i">
                         <div>
                             <p class="list_name">优惠<span>美味又优惠，大家快来抢!</span></p>
                             <ul class="goodsListList">
@@ -58,8 +74,25 @@
 </template>
 
 <script>
+    import Top from '../components/Top.vue';
     export default {
-
+        data() {
+            return {
+                value:'',
+                searchClick:false,
+            };
+        },
+        components:{
+            Top,
+        },
+        methods: {
+            handleSearch() {
+                this.searchClick = true;
+            },
+            handleClick(){
+                console.log('clickkkkkk');
+            }
+        }
     }
 </script>
 

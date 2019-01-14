@@ -1,7 +1,9 @@
 
 <template>
- <div class="view">
-    <router-view class="child-view"></router-view>
+ <div>
+    <keep-alive>
+      <router-view class="child-view"></router-view>
+    </keep-alive>
     <Bottom></Bottom>
  </div>
 
@@ -14,9 +16,14 @@ import Bottom from '../components/Bottom.vue'
 
 export default {
   name: 'home',
-  
   components: {
     Bottom,
   },
 };
 </script>
+<style>
+.view{
+  background-color: #f2f2f2;
+}
+</style>
+

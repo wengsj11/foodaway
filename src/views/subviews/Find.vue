@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <Top title="发现"></Top>
+  <div class="view">
+    <Top title="发现" :fixed="true" ></Top>
     发现内容
   </div>
 </template>

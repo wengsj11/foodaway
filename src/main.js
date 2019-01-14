@@ -9,7 +9,12 @@ import 'mint-ui/lib/style.css'
 // 引入iview
 import 'iview/dist/styles/iview.css';
 import iView from 'iview';
-
+//axios
+import axios from 'axios';
+import VueAxios from 'vue-axios'
+ 
+Vue.use(VueAxios, axios)
+axios.defaults.withCredentials = true // 设置可以使用session
 Vue.use(iView);
 Vue.use(MintUI)
 

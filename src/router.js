@@ -8,9 +8,6 @@ import Find from './views/subviews/Find.vue';
 import Profile from './views/subviews/Profile.vue';
 
 import Login from './views/Login.vue';
-import PwdLogin from './views/PwdLogin.vue';
-import CodeLogin from './views/CodeLogin.vue';
-
 import Shop from './views/Shop.vue';
 import Search from './views/Search.vue';
 import goodList from './components/goodList.vue';
@@ -51,18 +48,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login,
-      children: [
-        {
-          path: '/login/pwd',
-          name: 'login',
-          component: PwdLogin,
-        },
-        {
-          path: '/login',
-          name: 'login',
-          component: CodeLogin,
-        },
-      ],
     },
     {
       path: '/search',
