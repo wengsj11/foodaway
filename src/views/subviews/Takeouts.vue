@@ -47,7 +47,7 @@
       <ul
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
-        infinite-scroll-distance="10">
+        infinite-scroll-distance="20">
         <li v-for="(item,index) in restaurants" :key="index" class="shop-item" @click="toShop">
           <img :src="item.avatar" alt="logo">
           <div class="shop-item__desc">
@@ -76,12 +76,13 @@
           </div>
         </li>
       </ul>
+      <mt-spinner type="snake" v-if="loading" class="loading-more"></mt-spinner>
     </div>
   </div>
 </template>
 <script>
   import Top from '../../components/Top.vue';
-  import axios from 'axios';
+  import api from '../../api/server.js';
 
   export default {
     name: 'takeouts',
@@ -103,14 +104,26 @@
         this.$router.push('/login')
       },
       loadMore() {
-        this.loading = true;
-        setTimeout(() => {
-          let last = this.list[this.list.length - 1];
-          for (let i = 1; i <= 10; i++) {
-            this.list.push(last + i);
-          }
-          this.loading = false;
-        }, 2500);
+        console.log(this.page);
+        if(this.page <=2){
+          this.loading = true;
+          setTimeout(() => {
+            api.getRestaurantsData(this.page).then(res =>{
+              const data = res.data;
+              if(data.status === 1){
+                data.data.forEach(item => {
+                  this.restaurants.push(item);
+                });
+                console.log(this.restaurants);
+              } else {
+                  console.log(data.msg);
+              }
+              this.loading = false;
+              this.page++;
+            })
+          },2000)
+        }
+
       }
     },
     components: {
@@ -126,37 +139,15 @@
     },
     mounted(){
       // 获取菜单数据
-      axios.get('http://localhost:3000/menus').then((res)=>{
-        const data = res.data;
-        if(data.status === 1){
-          this.menus = data.data;
-          // console.log(this.menus);
-        } else {
-          console.log(data.msg);
-        }
-      }).catch((err)=>{
-        console.log(err)
-      });
-      // 获取首页商家列表数据
-      axios({
-                method: 'get',
-                url: 'http://localhost:3000/restaurants',
-                data:{
-                    page: this.page,
-                    // csid: this.code
-                }
-            }).then((res)=>{
-                const data = res.data;
-                if(data.status === 1){
-                  this.restaurants = data.data;
-                  console.log(this.restaurants);
-                } else {
-                    console.log(data.msg);
-                }
-                this.page++;
-            }).catch((err)=>{
-                console.log(err)
-            })
+      api.getMenusData().then((res)=>{
+          const data = res.data;
+          if(data.status === 1){
+            this.menus = data.data;
+            // console.log(this.menus);
+          } else {
+            console.log(data.msg);
+          }
+        })
     }
   }
 </script>
@@ -175,6 +166,8 @@
   border-bottom: .01rem solid #e6e5e5;
 }
 .shop{
+  display: flex;
+  flex-direction: column;
   border-top: .01rem solid #e6e5e5;
   background-color: #fff;
 }
@@ -298,5 +291,13 @@
 }
 .ivu-rate-star{
   margin: 0 !important;
+}
+.loading-more {
+  align-self: center;
+  margin-bottom: 55px;
+}
+.loading-more div {
+  width: 40px;
+  height: 40px;
 }
 </style>

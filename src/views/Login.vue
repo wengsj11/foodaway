@@ -38,6 +38,7 @@
 <script>
 import Top from '../components/Top';
 import axios from 'axios';
+import { MessageBox } from 'mint-ui';
 
 export default {
     data(){
@@ -58,6 +59,10 @@ export default {
             this.codeLogin = !this.codeLogin;
         },
          getCode(){
+             if(!this.phone){
+                 MessageBox('提示', '请先输入手机号');
+                 return;
+             }
              let seconds = 60;
              const timer = setInterval(()=>{
                  this.codeText = '已发送('+ seconds +')';
@@ -81,6 +86,10 @@ export default {
             });
         },
         loginByCode(){
+            if(!this.phone || !this.code){
+                 MessageBox('提示', '请先输入手机号和验证码');
+                 return;
+             }
             console.log('logincode');
             //短信登录
             axios({
@@ -93,7 +102,7 @@ export default {
             }).then((res)=>{
                 const data = res.data;
                 if(data.status === 1){
-                    console.log(data.msg);
+                    console.log(data);
                     this.$router.push('index');
                 } else {
                     console.log(data.msg);
@@ -103,6 +112,11 @@ export default {
             })
         },
         loginByPwd(){
+            // if(!this.account || !this.password || !this.captcha){
+            if(!this.account || !this.password){
+                 MessageBox('提示', '请先输入账号密码和验证码');
+                 return;
+             }
             console.log('pwd login')
             //短信登录
             axios({
@@ -115,7 +129,7 @@ export default {
             }).then((res)=>{
                 const data = res.data;
                 if(data.status === 1){
-                    console.log(data.msg);
+                    console.log(data);
                     this.$router.push('index');
                 } else {
                     console.log(data.msg);
