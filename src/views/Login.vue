@@ -1,8 +1,8 @@
 <template>
-     <div class="login">
+     <div class="login body-container">
         <!-- <router-view></router-view> -->
         <Top title="登录"
-        :left="{path:'/index',icon:'back'}"
+        :left="{icon:'back'}"
         :right="{text:codeLogin?'密码登录':'短信登录',click:switchLogin}"
         >
         </Top>
@@ -37,6 +37,7 @@
 
 <script>
 import Top from '../components/Top';
+import api from '../api/server.js';
 import axios from 'axios';
 import { MessageBox } from 'mint-ui';
 
@@ -92,14 +93,7 @@ export default {
              }
             console.log('logincode');
             //短信登录
-            axios({
-                method: 'post',
-                url: 'http://localhost:3000/login/code',
-                data:{
-                    phone: this.phone,
-                    code: this.code
-                }
-            }).then((res)=>{
+            api.loginByCode(this.phone,this.code).then((res)=>{
                 const data = res.data;
                 if(data.status === 1){
                     console.log(data);
@@ -118,25 +112,26 @@ export default {
                  return;
              }
             console.log('pwd login')
-            //短信登录
-            axios({
-                method: 'post',
-                url: 'http://localhost:3000/login/pwd',
-                data:{
-                    account: this.account,
-                    password: this.password,
-                }
+            //密码登录
+            this.$store.dispatch('userLoginByPwd', { 
+                account: this.account, 
+                password: this.password 
             }).then((res)=>{
-                const data = res.data;
-                if(data.status === 1){
-                    console.log(data);
-                    this.$router.push('index');
-                } else {
-                    console.log(data.msg);
-                }
+                this.$router.push('index');
             }).catch((err)=>{
                 console.log(err)
             })
+            // api.loginByCode(this.account, this.password).then((res)=>{
+            //     const data = res.data;
+            //     if(data.status === 1){
+            //         console.log(data);
+            //         this.$router.push('index');
+            //     } else {
+            //         console.log(data.msg);
+            //     }
+            // }).catch((err)=>{
+            //     console.log(err)
+            // })
         }
     },
     components: {

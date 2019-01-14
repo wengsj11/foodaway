@@ -3,7 +3,7 @@
     <Top title="福建农林大学"
     :fixed="true"
     :left="{path:'/search',icon:'search'}"
-    :right="{path:'/login',text:'登录 | 注册',click: toLogin}"
+    :right="user.phone ? {click: toPath.bind(this,'/index/profile'),icon:'more'}:{text:'登录 | 注册',click: toPath.bind(this,'/login')}"
     >
     </Top>
     <!-- <router-link to="/goodlist"> 商店列表</router-link>
@@ -48,7 +48,7 @@
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="20">
-        <li v-for="(item,index) in restaurants" :key="index" class="shop-item" @click="toShop">
+        <li v-for="(item,index) in restaurants" :key="index" class="shop-item" @click="toPath('/shop')">
           <img :src="item.avatar" alt="logo">
           <div class="shop-item__desc">
             <p class="desc-title">
@@ -83,6 +83,7 @@
 <script>
   import Top from '../../components/Top.vue';
   import api from '../../api/server.js';
+  import { mapState } from 'vuex';
 
   export default {
     name: 'takeouts',
@@ -94,17 +95,15 @@
         list:[1,2,3,4,5,6,7,8,9,10],
         loading: false,
         shoprate:3.5,
+        userInfo:'',
       };
     },
     methods: {
-      toShop(){
-        this.$router.push('/shop')
-      },
-      toLogin(){
-        this.$router.push('/login')
+      toPath(path){
+        this.$router.push(path)
       },
       loadMore() {
-        console.log(this.page);
+        // console.log(this.page);
         if(this.page <=2){
           this.loading = true;
           setTimeout(() => {
@@ -136,6 +135,9 @@
       menus2(){
         return this.menus.length >0 ? this.menus.filter((_, index)=> index > 7):[]
       },
+      user(){
+        return this.$store.state.user;
+      }
     },
     mounted(){
       // 获取菜单数据

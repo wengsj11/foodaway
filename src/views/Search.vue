@@ -1,8 +1,7 @@
 <template>
     <div class="search-page">
         <!-- 头部组件  -->
-        <Top title="发现美食"
-        :left="{path:'/index',icon:'back'}">
+        <Top title="发现美食" :left="{icon:'back',path:'/index'}">
         </Top>
         <div class="search clearfix">
             <!-- <Input suffix="ios-close" search enter-button="提交" placeholder="你是不是饿得慌" /> -->

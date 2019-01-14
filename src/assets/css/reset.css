@@ -24,4 +24,3 @@ button,input,select,textarea {
 body * {
     -webkit-text-size-adjust: 100%!important;  /*禁止IOS调整字体大小*/
 }
-.page{max-width:7.5rem;margin:0 auto;}

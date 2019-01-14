@@ -3,15 +3,15 @@
     <div class="page">
         <div class="top">
         <!-- 头部 -->
-         <Top title="我的"></Top>
+         <Top title="我的" :left="{icon:'back',path:'/index'}"></Top>
         <!-- 个人信息 -->
-            <div class="user">
+            <div class="user"  @click="handleClick">
                 <div class="user-via">
                     <img src="../../assets/logo.png" />
                 </div>
                 <div class="user-info">
-                    <h3>肥宅</h3>
-                    <h3><Icon type="md-phone-portrait" /><span class="phone">18060023333</span></h3>
+                    <h3>{{user.username?user.username:'暂未登录'}}</h3>
+                    <h3 v-show="user.phone"><Icon type="md-phone-portrait" /><span class="phone">{{user.phone}}</span></h3>
                     <Icon type="ios-arrow-forward" />
                 </div>
             </div>
@@ -68,6 +68,8 @@
 </template>
 <script>
 import Top from '../../components/Top.vue';
+import { mapState } from 'vuex';
+
 export default {
      data () {
             return {
@@ -76,6 +78,18 @@ export default {
         },
         components: {
             Top,
+        },
+        computed: mapState([
+            'user'
+        ]),
+        methods: {
+            handleClick(){
+                if(!this.user.phone){
+                    this.$router.push('/login')
+                } else {
+                    console.log(this.user);
+                }
+            }
         }
 }
 </script>

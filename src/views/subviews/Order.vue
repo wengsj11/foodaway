@@ -1,6 +1,6 @@
 <template>
 
-<div class="order-wraper " >
+<div class="order-wraper" >
   <h2>历史订单</h2>
   <div class="order-list">
   <div class="order clearfix">
@@ -174,7 +174,6 @@
 <style scope>
   .order-wraper{
     text-align: left;
-    height: 100%;
     overflow: hidden;
   }
   .order-wraper h2{
