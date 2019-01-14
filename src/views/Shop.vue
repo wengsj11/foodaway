@@ -19,7 +19,7 @@
         <!-- header -->
         <header class="shop-top clearfix" :style="{paddingTop:'40px'}">
             <div class="shop-img fl">
-                <img src="https://img.yzcdn.cn/upload_files/2017/07/02/af5b9f44deaeb68000d7e4a711160c53.jpg" />
+                <img src="" />
             </div>
             <div class="shop-info fl">
                 <span class="shop-title">bigbang韩国炸鸡(农大店)</span><br>
@@ -96,7 +96,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .shop-top {
         position: relative;
         width: 100%;

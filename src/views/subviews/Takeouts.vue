@@ -48,27 +48,27 @@
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="10">
-        <li v-for="(item,index) in list" :key="index" class="shop-item" @click="toShop">
-          <img src="../../assets/logo.png" alt="logo">
+        <li v-for="(item,index) in restaurants" :key="index" class="shop-item" @click="toShop">
+          <img :src="item.avatar" alt="logo">
           <div class="shop-item__desc">
             <p class="desc-title">
-              <span class="desc-brand">品牌</span>
-              bigbang韩国炸鸡(农大店)
+              <span class="desc-brand" v-if="item.is_premium">品牌</span>
+              {{item.name}}
             </p>
-            <Rate allow-half v-model="shoprate" /><span class="desc-rate">{{ item }}</span><span class="desc-monthly">月售669单</span>
+            <Rate allow-half v-model="item.score"/><span class="desc-rate">{{ item.score }}</span><span class="desc-monthly">月售{{item.monthly}}单</span>
             <p class="desc-price">
-              <span>￥0起送 / 配送费￥8</span>
+              <span>￥{{item.min_price}}起送 / 配送费￥{{item.delivery_fee}}</span>
             </p>
           </div>
           <div class="shop-item__label">
             <p class="label-line">
-              <span class="label--white">保</span>
-              <span class="label--white">准</span>
-              <span class="label--white">票</span>
+              <span class="label--white" v-for="(su, index) in item.supports" :key="index">
+                {{su.icon_name}}
+              </span>
             </p>
             <p class="label-line">
-              <span class="label--blue">蜂鸟专送</span>
-              <span class="label--bluewhite">准时达</span>
+              <span class="label--blue" v-if="item.delivery_mode">{{item.delivery_mode.text}}</span>
+              <span class="label--bluewhite" v-if="item.supports.length >= 2">准时达</span>
             </p>
             <p class="label-line">
               <span class="label-distance">1.87km / <span class="label-time">59分钟</span></span>
@@ -88,6 +88,8 @@
     data() {
       return {
         menus:[],
+        restaurants:[],
+        page: 1,
         list:[1,2,3,4,5,6,7,8,9,10],
         loading: false,
         shoprate:3.5,
@@ -128,7 +130,7 @@
         const data = res.data;
         if(data.status === 1){
           this.menus = data.data;
-          console.log(this.menus);
+          // console.log(this.menus);
         } else {
           console.log(data.msg);
         }
@@ -136,7 +138,25 @@
         console.log(err)
       });
       // 获取首页商家列表数据
-
+      axios({
+                method: 'get',
+                url: 'http://localhost:3000/restaurants',
+                data:{
+                    page: this.page,
+                    // csid: this.code
+                }
+            }).then((res)=>{
+                const data = res.data;
+                if(data.status === 1){
+                  this.restaurants = data.data;
+                  console.log(this.restaurants);
+                } else {
+                    console.log(data.msg);
+                }
+                this.page++;
+            }).catch((err)=>{
+                console.log(err)
+            })
     }
   }
 </script>
@@ -277,7 +297,6 @@
   font-size: initial !important;
 }
 .ivu-rate-star{
-  height: .16rem;
   margin: 0 !important;
 }
 </style>
