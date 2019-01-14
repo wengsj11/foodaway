@@ -151,7 +151,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
 #swipe .mint-swipe-indicator{
   opacity: 1;
   background-color: #ccc ;
