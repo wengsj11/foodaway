@@ -1,9 +1,9 @@
 /* eslint-disable */
 <template>
-    <div class="view">
-         <Top title="我的" :fixed="true" ></Top>
+    <div class="page">
         <div class="top">
         <!-- 头部 -->
+         <Top title="我的"></Top>
         <!-- 个人信息 -->
             <div class="user">
                 <div class="user-via">
@@ -80,7 +80,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .clearfix {
     content:'';
     display: table;
@@ -89,7 +89,7 @@ export default {
 .ivu-layout-content {
     height: 100%;
 }
-.view {
+.page {
     height: 100%;
     background: #F1F1F1;
 }
@@ -107,8 +107,8 @@ export default {
 }
   .user-via {
       float: left;
-      width: .8rem;
-      height: .8rem;
+      width: 1rem;
+      height: 1rem;
       border-radius: 50%;
       overflow: hidden;
       border: 1px solid #999;
@@ -120,7 +120,7 @@ export default {
   .user-info {
       float: left;
       margin: auto .2rem;
-      font-size: .22rem;
+      font-size: .25rem;
   }
     .ivu-icon-md-phone-portrait:before {
         font-size: .3rem;
@@ -132,11 +132,11 @@ export default {
         position: absolute;
         top: 50%;
         right: 5%;
-        margin-top: -.15rem;
-        font-size: .3rem;
+        margin-top: -.2rem;
+        font-size: .4rem;
     }
     .phone {
-        line-height: .3rem;
+        line-height: .5rem;
     }
     .pannel {
         width: 100%;
@@ -151,6 +151,7 @@ export default {
         flex: 1;
         border-right: .01rem solid #e5e5e5;
         padding-top: .25rem;
+        text-align: center;
     }
     .orange {
         font-size: .4rem;
@@ -178,9 +179,9 @@ export default {
 }
 .icon {
     display: inline-block;
-    width: .15rem;
-    height: .15rem;
-    line-height: .24rem;
+    width: .3rem;
+    height: .3rem;
+    line-height: .38rem;
     vertical-align: top;
     margin-right: .1rem;;
 }

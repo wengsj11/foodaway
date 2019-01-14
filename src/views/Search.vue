@@ -1,13 +1,13 @@
 <template>
     <div class="search-page">
         <!-- 头部组件  -->
-        <Top title="福建农林大学"
+        <Top title="发现美食"
         :left="{path:'/index',icon:'back'}">
         </Top>
         <div class="search clearfix">
             <!-- <Input suffix="ios-close" search enter-button="提交" placeholder="你是不是饿得慌" /> -->
             <!-- <Icon type="ios-close" class="icon"/> -->
-            <Input  icon="ios-close" placeholder="ET,你是不是饿得慌" class="fl" />
+            <Input clearable placeholder="ET,你是不是饿得慌" class="fl" />
             <Button type="primary" class="fl" >提交</Button>
 
         </div>
@@ -50,6 +50,11 @@ export default {
 }
 Input::placeholder {
     font-size: .23rem;
+    font-weight: normal!important;
+}
+.ivu-input-type .ivu-input-default {
+    font-weight: normal;
+    color: #333;
 }
 .search-input {
     position: relative;

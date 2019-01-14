@@ -33,9 +33,9 @@ export default new Router({
           component: Order,
         },
         {
-          path: '/index/find',
-          name: 'find',
-          component: Find,
+          path: '/index/search',
+          name: 'search',
+          component: Search,
         },
         {
           path: '/index/profile',

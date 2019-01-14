@@ -4,13 +4,14 @@
       <img slot="icon" src="../assets/logo.png">
       外卖
     </mt-tab-item>
+  
+    <mt-tab-item id="/index/search">
+      <img slot="icon" src="../assets/logo.png">
+      发现
+    </mt-tab-item>
     <mt-tab-item id="/index/order">
       <img slot="icon" src="../assets/logo.png">
       订单
-    </mt-tab-item>
-    <mt-tab-item id="/index/find">
-      <img slot="icon" src="../assets/logo.png">
-      发现
     </mt-tab-item>
     <mt-tab-item id="/index/profile">
       <img slot="icon" src="../assets/logo.png">
