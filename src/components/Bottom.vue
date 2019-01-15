@@ -5,7 +5,7 @@
       外卖
     </mt-tab-item>
   
-    <mt-tab-item id="/index/search">
+    <mt-tab-item id="/index/find">
       <img slot="icon" src="../assets/logo.png">
       发现
     </mt-tab-item>

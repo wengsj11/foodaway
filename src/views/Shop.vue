@@ -38,7 +38,7 @@
                </p>
          </header>
 <!-- 商店商品 -->
-        <div class="wrap">
+        <div class="wrap clearfix">
              <div class="catalogue-wraper menu-wrapper fl">
                 <ul class="catalogue">
                     <li><Icon type="md-flame"  class="icon_r"/>热销榜</li>
@@ -123,26 +123,36 @@
             return {
                 value:'',
                 searchClick:false,
-                 valueDisabled:3.5,
+                valueDisabled:3.5,
                 show:false,
                 choose:false,
                 scrollY:0,
                 tops: [], // 所有右侧分类li的top组成的数组  
             };
         },
+        created:{
+            created: function () {
+                setInterval(this.timer, 1000);
+            },
+        },
+        computed:{
+             currentIndex() {   //初始和相关数据发生变化的时候执行
+                //得到条件数据
+                const {scrollY, tops} = this
+                //根据条件计算产生一个结果
+                //回调函数,每个都是top,要找的是index
+                const index = tops.findIndex((top, index) => {
+                    return scrollY >= top && scrollY < tops[index + 1]
+                })
+                //返回结果
+                return index
+            }
+        },
         components:{
             Top,
             Cart,
         },
-        methods: {
-            handleSearch() {
-                this.searchClick = true;
-            },
-            handleClick(){
-                console.log('clickkkkkk');
-            }
-        }
-    }
+   }
 </script>
 
 <style scoped>
@@ -310,5 +320,6 @@
         .information{margin-bottom: .5rem;}
         .information span{line-height: .4rem;}
         .tit{width: 1rem;height: .3rem;border: .01rem solid white;margin: .2rem auto;border-radius: .15rem;text-align: center;color: #fff;font-size: .2rem;line-height: .3rem;margin-bottom: .3rem;}
-        .cart {position: fixed;bottom: 0;left: 0;}
+        .cart {position: fixed;bottom: 0;left: 0;z-index: 100;}
+       
 </style>

@@ -2,10 +2,22 @@
 
 <div class="order-wraper " >
   <h2>历史订单</h2>
-  <div class="order-list">
-  <div class="order clearfix">
+  <ul class="order-list">
+    <li class="order clearfix">
+      <div class="order-img fl">
+        <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
+      </div>
+      <div class="order-info fl">
+        <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
+        <h4>2019-01-12 11:48</h4>
+        <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
+      </div>
+      <p class="fr">订单已送达</p>
+      <p class="fr">￥9.98</p>
+    </li>
+      <li class="order clearfix">
     <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
+      <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
     </div>
     <div class="order-info fl">
       <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
@@ -14,10 +26,10 @@
     </div>
     <p class="fr">订单已送达</p>
     <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
+  </li>
+    <li class="order clearfix">
     <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
+      <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
     </div>
     <div class="order-info fl">
       <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
@@ -26,10 +38,10 @@
     </div>
     <p class="fr">订单已送达</p>
     <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
+  </li>
+    <li class="order clearfix">
     <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
+      <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
     </div>
     <div class="order-info fl">
       <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
@@ -38,10 +50,10 @@
     </div>
     <p class="fr">订单已送达</p>
     <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
+  </li>
+    <li class="order clearfix">
     <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
+      <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
     </div>
     <div class="order-info fl">
       <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
@@ -50,10 +62,10 @@
     </div>
     <p class="fr">订单已送达</p>
     <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
+  </li>
+    <li class="order clearfix">
     <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
+      <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
     </div>
     <div class="order-info fl">
       <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
@@ -62,10 +74,10 @@
     </div>
     <p class="fr">订单已送达</p>
     <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
+  </li>
+    <li class="order clearfix">
     <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
+      <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
     </div>
     <div class="order-info fl">
       <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
@@ -74,91 +86,8 @@
     </div>
     <p class="fr">订单已送达</p>
     <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div>
-  <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div>
-   <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div> 
-  <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div>
-    <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div>  <div class="order clearfix">
-    <div class="order-img fl">
-      <div><img src="../../assets/logo.png"></div>
-    </div>
-    <div class="order-info fl">
-      <h3><span>北岛酱爆猪肉饭</span> <Icon type="ios-arrow-forward" /></h3>
-      <h4>2019-01-12 11:48</h4>
-      <h5>招牌猪肉组合套餐 + 鸡腿 + 海带排骨汤</h5>
-    </div>
-    <p class="fr">订单已送达</p>
-    <p class="fr">￥9.98</p>
-  </div>
-  </div>
+  </li>
+  </ul>
 </div>
 </template>
 <script>
@@ -193,7 +122,6 @@
   .order {
     position: relative;
     width: 100%;
-    height: 2.5rem;
     padding: .35rem .25rem ;
     border-bottom: .005rem solid #eaeaea;
   }
