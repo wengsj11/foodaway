@@ -11,8 +11,28 @@
             <Button type="primary" class="fl" >提交</Button>
 
         </div>
-        <div>
-            <h2 class="title">商家</h2>
+        <div class="history_search">
+            <h2 class="title">历史搜索</h2>
+            <ul class="history_search_items">
+            <li>双皮奶</li>
+            <li>红烧猪蹄</li>
+            <li>土豆泥</li>            
+            <li>鸡公煲</li>           
+            <li>虾</li>
+            <li>老鸭粉丝</li>
+            <li>披萨</li>
+            <li>蛋糕</li>
+            </ul>
+        </div>
+        <div class="hot_search">
+            <h2 class="title">热门搜索</h2>
+            <ul class="hot_search_items">
+            <li>片皮鸭</li>
+            <li>烤鱼</li>
+            <li>麻辣烫</li>            
+            <li>粥</li>           
+            <li>小龙虾</li>
+            </ul>
         </div>
     </div>
 </template>
@@ -70,9 +90,24 @@ Input::placeholder {
     height: .7rem;
     padding-left: .15rem;
     font-size: .3rem;
-    color: #666;
+    color:black;
+    font-weight: bold;
     font-family: "微软雅黑";
-    line-height: .6rem;
+    line-height: .7rem;
     background: #F3F3F3;
+}
+.history_search_items li,.hot_search_items li{
+    display: inline-block;
+    height: .8rem;
+    flex: 1;
+    background: #f7f7f7;
+    line-height: .8rem;
+    text-align: center;
+    font-size: .2rem;
+    border:0;
+    border-radius: .2rem; 
+    margin:.1rem; 
+    padding: 0 .4rem;
+    
 }
 </style>
