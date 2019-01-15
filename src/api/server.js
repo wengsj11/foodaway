@@ -2,7 +2,7 @@ import axios from 'axios';
 /**
   axios数据接口
 */
-const host = 'http://192.169.137.1:3000';
+const host = 'http://192.168.0.125:3000';
 const apiService = {
   getMenusData() {
     return axios.get(`${host}/menus`);
@@ -31,6 +31,9 @@ const apiService = {
         password,
       },
     });
+  },
+  getloginCode(phone) {
+    return axios.get(`${host}/code?phone=${phone}`);
   },
 };
 
