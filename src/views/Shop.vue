@@ -15,7 +15,7 @@
         <!-- header -->
         <header class="shop-top clearfix" :style="{paddingTop:'40px'}" @click="show=true" ref="header">
             <div class="shop-img fl">
-                <img src="" />
+                <img src="https://fuss10.elemecdn.com/c/87/a642a93caa190f8c3435f6645658cjpeg.jpeg?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/" />
             </div>
             <div class="shop-info fl">
                 <span class="shop-title">bigbang韩国炸鸡(农大店)</span><br>
@@ -36,10 +36,22 @@
 <!-- 商店商品 -->
         <div class="wrap clearfix">
              <div class="catalogue-wraper menu-wrapper fl">
-                <ul class="catalogue">
+                 <ul class="catalogue">
                     <li><Icon type="md-flame"  class="icon_r"/>热销榜</li>
                     <li><Icon type="md-pricetag" class="icon_y"/>优惠</li>
                     <li class="active">热销榜</li>
+                    <li>9寸12寸现烤披萨</li>
+                    <li>15寸的1 / 8披萨披萨</li>
+                    <li>6寸单人披萨</li>
+                    <li>意面</li>
+                    <li>炬饭局面系列</li>
+                    <li>汉堡</li>
+                    <li>小吃类</li>
+                    <li>冬天来啦</li>
+                    <li>饮料</li>
+                    <li>加料区</li>
+                    <li>五折工作餐</li>
+                    <li>超值特价餐</li>
                 </ul>
              </div>
             <div class="right fr foods-wrapper" >
@@ -305,7 +317,7 @@
      }
       .view .right{margin:0;padding: 0;text-align: left;width: 76%;height: 100%;}
         .view .list_name{position: relative;height: .5rem;background: #f2f2f2;line-height: .6rem;border: 0;font-size: .27rem;color: #707070;padding-left: .15rem;font-family: '微软雅黑';}
-        .view .list_name span{font-size: .1rem;margin-left: .01rem; color: #9f9d9d;margin-left: .1rem;}
+        .view .list_name span{font-size: .18rem;margin-left: .01rem; color: #9f9d9d;margin-left: .1rem;}
         .ivu-icon-ios-more{position: absolute;top: 50%;right: .15rem;margin-top: -.15rem;}
         .ivu-icon-ios-more:before{font-size: .3rem;color: #999;}
         /* 选规格 */

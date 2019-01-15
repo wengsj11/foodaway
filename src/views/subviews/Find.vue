@@ -9,8 +9,10 @@
             <div class="ad_new" @click="toBuild()">
                 <img src="https://fuss10.elemecdn.com/2/f6/36e52bca0d6db458e9855b7fc5813jpeg.jpeg?imageMogr/format/webp/thumbnail/568x/" />
             </div>
-            <h2 class="title"><Icon type="ios-nutrition-outline" />为你推荐</h2>
-            <h3>你的口味我都懂得</h3>
+            <div class="push">
+                <h2 class="pushtitle"><Icon type="ios-nutrition-outline" class="pushicon" />为你推荐</h2>
+                <h3>你的口味我都懂得</h3>
+            </div>
              <div class="case-div">
                <ul class="clearfix" @click="toBuild()">
                    <li>
@@ -211,15 +213,24 @@
   width: 100%;
   height: 100%;
 }
-.title {
-  height: 1.5rem;
-  background: #fff;
-  text-align: center;
-  color: #333;
-  font-size: .25rem;
-  line-height: 1;
+.push{
+    padding: .2rem 0 0 0;
+    text-align: center;
+    background: #fff;
 }
-.title+h3{font-size: .15rem;color: #e5e5e5;text-align: center;}
+.pushtitle {
+  color: #000;
+  font-size: .3rem;
+  text-align: center; 
+  line-height: 1;
+  font-weight: bold;
+}
+.title+h3{font-size: .18rem;color: #999;text-align: center;}
+.push .ivu-icon {
+    font-size: .4rem;
+    margin-right: .1rem;
+    color: orangered;
+}
 </style>
 
 
