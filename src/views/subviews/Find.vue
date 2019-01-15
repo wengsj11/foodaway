@@ -6,6 +6,9 @@
             <div class="ad">
                 <img src="https://fuss10.elemecdn.com/f/08/1ab72d30ca8bd140c798387fb78eapng.png" />
             </div>
+            <div class="ad_new">
+                <img src="https://fuss10.elemecdn.com/2/f6/36e52bca0d6db458e9855b7fc5813jpeg.jpeg?imageMogr/format/webp/thumbnail/568x/" />
+            </div>
             <h2 class="title"><Icon type="ios-nutrition-outline" />为你推荐</h2>
             <h3>你的口味我都懂得</h3>
              <div class="case-div">
@@ -79,15 +82,17 @@
 .view{background: #fff;height: 100%;}
 .view>h2{
   position: fixed;
-  top: 0;
   left: 0;
-  width: 100%;
+  top: 0;
   background: #fff;
-  height: 1rem;
-  line-height: 1rem;
   font-size: .4rem;
-  color: #333;
-  padding-left: .3rem;
+    font-weight: bold;
+    font-family: '微软雅黑';
+    line-height: 1rem;
+    padding-left: .15rem;
+  z-index: 2;
+  width: 100%;
+  height: 1rem;
 }
 .case-div ul{
     height: 100%;
@@ -189,9 +194,15 @@
 .ad{
   height: 1.5rem;
   width: 100%;
-   margin-top: .2rem;
+   margin-top: .3rem;
 }
-.ad img{
+.ad_new{
+    height: 1.8rem;
+    width: 100%;
+    border-top: .2rem solid #f2f2f2;
+    border-bottom: .2rem solid #f2f2f2;
+}
+.ad img,.ad_new img{
   width: 100%;
   height: 100%;
 }
