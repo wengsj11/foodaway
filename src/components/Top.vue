@@ -1,9 +1,8 @@
 
 <template>
-  <mt-header :title="title" :fixed="fixed">
-    <router-link :to="left.path" slot="left" v-if="left">
-      <mt-button :icon="left.icon">{{left.text}}</mt-button>
-    </router-link>
+  <mt-header :title="title" :fixed="fixed" >
+    <mt-button :icon="left.icon" slot="left" v-if="left" @click="toPath(left.path)">{{left.text}}</mt-button>
+    <slot name="center"></slot>
     <mt-button :icon="right.icon" slot="right" v-if="right" @click="right.click">{{right.text}}</mt-button>
   </mt-header>
 </template>
@@ -18,6 +17,11 @@ export default {
     return{
     };
   },
+  methods: {
+    toPath(path) {
+      path ? this.$router.push(path) : this.$router.go(-1);
+    }
+  }
 }
 </script>
 <style scoped>

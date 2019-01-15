@@ -3,7 +3,7 @@
     <Top title="福建农林大学"
     :fixed="true"
     :left="{path:'/search',icon:'search'}"
-    :right="{path:'/login',text:'登录 | 注册',click: toLogin}"
+    :right="user.phone ? {click: toPath.bind(this,'/index/profile'),icon:'more'}:{text:'登录 | 注册',click: toPath.bind(this,'/login')}"
     >
     </Top>
     <!-- <router-link to="/goodlist"> 商店列表</router-link>
@@ -47,8 +47,8 @@
       <ul
         v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
-        infinite-scroll-distance="10">
-        <li v-for="(item,index) in restaurants" :key="index" class="shop-item" @click="toShop">
+        infinite-scroll-distance="20">
+        <li v-for="(item,index) in restaurants" :key="index" class="shop-item" @click="toPath('/shop')">
           <img :src="item.avatar" alt="logo">
           <div class="shop-item__desc">
             <p class="desc-title">
@@ -76,12 +76,14 @@
           </div>
         </li>
       </ul>
+      <mt-spinner type="snake" v-if="loading" class="loading-more"></mt-spinner>
     </div>
   </div>
 </template>
 <script>
   import Top from '../../components/Top.vue';
-  import axios from 'axios';
+  import api from '../../api/server.js';
+  import { mapState } from 'vuex';
 
   export default {
     name: 'takeouts',
@@ -93,24 +95,34 @@
         list:[1,2,3,4,5,6,7,8,9,10],
         loading: false,
         shoprate:3.5,
+        userInfo:'',
       };
     },
     methods: {
-      toShop(){
-        this.$router.push('/shop')
-      },
-      toLogin(){
-        this.$router.push('/login')
+      toPath(path){
+        this.$router.push(path)
       },
       loadMore() {
-        this.loading = true;
-        setTimeout(() => {
-          let last = this.list[this.list.length - 1];
-          for (let i = 1; i <= 10; i++) {
-            this.list.push(last + i);
-          }
-          this.loading = false;
-        }, 2500);
+        // console.log(this.page);
+        if(this.page <=2){
+          this.loading = true;
+          setTimeout(() => {
+            api.getRestaurantsData(this.page).then(res =>{
+              const data = res.data;
+              if(data.status === 1){
+                data.data.forEach(item => {
+                  this.restaurants.push(item);
+                });
+                console.log(this.restaurants);
+              } else {
+                  console.log(data.msg);
+              }
+              this.loading = false;
+              this.page++;
+            })
+          },2000)
+        }
+
       }
     },
     components: {
@@ -123,44 +135,25 @@
       menus2(){
         return this.menus.length >0 ? this.menus.filter((_, index)=> index > 7):[]
       },
+      user(){
+        return this.$store.state.user;
+      }
     },
     mounted(){
       // 获取菜单数据
-      axios.get('http://localhost:3000/menus').then((res)=>{
-        const data = res.data;
-        if(data.status === 1){
-          this.menus = data.data;
-          // console.log(this.menus);
-        } else {
-          console.log(data.msg);
-        }
-      }).catch((err)=>{
-        console.log(err)
-      });
-      // 获取首页商家列表数据
-      axios({
-                method: 'get',
-                url: 'http://localhost:3000/restaurants',
-                data:{
-                    page: this.page,
-                    // csid: this.code
-                }
-            }).then((res)=>{
-                const data = res.data;
-                if(data.status === 1){
-                  this.restaurants = data.data;
-                  console.log(this.restaurants);
-                } else {
-                    console.log(data.msg);
-                }
-                this.page++;
-            }).catch((err)=>{
-                console.log(err)
-            })
+      api.getMenusData().then((res)=>{
+          const data = res.data;
+          if(data.status === 1){
+            this.menus = data.data;
+            // console.log(this.menus);
+          } else {
+            console.log(data.msg);
+          }
+        })
     }
   }
 </script>
-<style>
+<style scoped>
 #swipe .mint-swipe-indicator{
   opacity: 1;
   background-color: #ccc ;
@@ -175,6 +168,8 @@
   border-bottom: .01rem solid #e6e5e5;
 }
 .shop{
+  display: flex;
+  flex-direction: column;
   border-top: .01rem solid #e6e5e5;
   background-color: #fff;
 }
@@ -298,5 +293,13 @@
 }
 .ivu-rate-star{
   margin: 0 !important;
+}
+.loading-more {
+  align-self: center;
+  margin-bottom: 55px;
+}
+.loading-more div {
+  width: 40px;
+  height: 40px;
 }
 </style>

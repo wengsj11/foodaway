@@ -48,27 +48,23 @@ html, body{
   margin: 0 auto;
   height: 100%;
 }
+.body-container{
+    position: fixed;
+    left: 0;
+    right:0;
+    bottom: 0;
+    overflow: auto;
+    height: 100%;
+  }
 .view{
-  padding-top: 40px;
+  padding: 40px 0 55px 0;
 }
 .view, .child-view{
-  height: 100%;
   width: 100%;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-}
-.slide-left-enter,
-.slide-right-leave-active {
-    -webkit-transform: translate(500px, 0) ;
-    transform: translate(500px, 0) ;
-}
-
-.slide-left-leave-active,
-.slide-right-enter {
-    -webkit-transform: translate(-500px, 0) ;
-    transform: translate(-500px, 0) ;
 }
 .transitionBody{
  transition: transform .5s linear; /*定义动画的时间和过渡效果*/

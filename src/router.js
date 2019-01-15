@@ -34,7 +34,7 @@ export default new Router({
         },
         {
           path: '/index/find',
-          name: 'find',
+          name: 'search',
           component: Find,
         },
         {

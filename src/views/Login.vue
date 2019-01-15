@@ -1,8 +1,8 @@
 <template>
-     <div class="login">
+     <div class="login body-container">
         <!-- <router-view></router-view> -->
         <Top title="登录"
-        :left="{path:'/index',icon:'back'}"
+        :left="{icon:'back'}"
         :right="{text:codeLogin?'密码登录':'短信登录',click:switchLogin}"
         >
         </Top>
@@ -37,7 +37,9 @@
 
 <script>
 import Top from '../components/Top';
+import api from '../api/server.js';
 import axios from 'axios';
+import { MessageBox } from 'mint-ui';
 
 export default {
     data(){
@@ -58,6 +60,10 @@ export default {
             this.codeLogin = !this.codeLogin;
         },
          getCode(){
+             if(!this.phone){
+                 MessageBox('提示', '请先输入手机号');
+                 return;
+             }
              let seconds = 60;
              const timer = setInterval(()=>{
                  this.codeText = '已发送('+ seconds +')';
@@ -81,19 +87,16 @@ export default {
             });
         },
         loginByCode(){
+            if(!this.phone || !this.code){
+                 MessageBox('提示', '请先输入手机号和验证码');
+                 return;
+             }
             console.log('logincode');
             //短信登录
-            axios({
-                method: 'post',
-                url: 'http://localhost:3000/login/code',
-                data:{
-                    phone: this.phone,
-                    code: this.code
-                }
-            }).then((res)=>{
+            api.loginByCode(this.phone,this.code).then((res)=>{
                 const data = res.data;
                 if(data.status === 1){
-                    console.log(data.msg);
+                    console.log(data);
                     this.$router.push('index');
                 } else {
                     console.log(data.msg);
@@ -103,26 +106,32 @@ export default {
             })
         },
         loginByPwd(){
+            // if(!this.account || !this.password || !this.captcha){
+            if(!this.account || !this.password){
+                 MessageBox('提示', '请先输入账号密码和验证码');
+                 return;
+             }
             console.log('pwd login')
-            //短信登录
-            axios({
-                method: 'post',
-                url: 'http://localhost:3000/login/pwd',
-                data:{
-                    account: this.account,
-                    password: this.password,
-                }
+            //密码登录
+            this.$store.dispatch('userLoginByPwd', { 
+                account: this.account, 
+                password: this.password 
             }).then((res)=>{
-                const data = res.data;
-                if(data.status === 1){
-                    console.log(data.msg);
-                    this.$router.push('index');
-                } else {
-                    console.log(data.msg);
-                }
+                this.$router.push('index');
             }).catch((err)=>{
                 console.log(err)
             })
+            // api.loginByCode(this.account, this.password).then((res)=>{
+            //     const data = res.data;
+            //     if(data.status === 1){
+            //         console.log(data);
+            //         this.$router.push('index');
+            //     } else {
+            //         console.log(data.msg);
+            //     }
+            // }).catch((err)=>{
+            //     console.log(err)
+            // })
         }
     },
     components: {

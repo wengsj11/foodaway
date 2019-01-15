@@ -1,23 +1,19 @@
 <template>
-    <div class="view" :style="{padding:'0'}">
+    <div class="view body-container" :style="{padding:'0'}" @scroll="handleScroll">
         <Top
         :left="{path:'/index',icon:'back'}"
         :right="{icon:'more',click:handleClick}"
         :fixed="true"
-        :style="{background:'transparent'}"></Top>
-        <!-- <mt-header fixed :style="{background:'transparent'}">
-            <router-link to="/index" slot="left">
-                <mt-button icon="back"></mt-button>
-            </router-link>
-            <template  slot="right">
-                <router-link to="/search">
-                    <mt-button icon="search"></mt-button>
-                </router-link>
-                <mt-button icon="more"></mt-button>
-            </template>
-        </mt-header> -->
+        :style="{background:topBackground,color:topColor,transition:'.3s'}">
+        </Top>
+        <div class="searchbox" slot="center">想吃什么搜一搜</div>
+        <!-- <mt-navbar :style="{top:'40px', position:'fixed',width:'100%',zIndex:zIndex}" ref="navbar">
+            <mt-tab-item id="1">点餐</mt-tab-item>
+            <mt-tab-item id="2">评价</mt-tab-item>
+            <mt-tab-item id="3">商家</mt-tab-item>
+        </mt-navbar> -->
         <!-- header -->
-        <header class="shop-top clearfix" :style="{paddingTop:'40px'}">
+        <header class="shop-top clearfix" :style="{paddingTop:'40px'}" @click="show=true" ref="header">
             <div class="shop-img fl">
                 <img src="" />
             </div>
@@ -38,30 +34,38 @@
                </p>
          </header>
 <!-- 商店商品 -->
-        <div class="wrap">
-            <ul class="catalogue">
-                <li><Icon type="md-flame"  class="icon_r"/>热销榜</li>
-                <li><Icon type="md-pricetag" class="icon_y"/>优惠</li>
-                <li class="active">热销榜<p class="badge"><span>2</span></p></li>
-            </ul>
-            <div class="right" >
+        <div class="wrap clearfix">
+             <div class="catalogue-wraper menu-wrapper fl">
+                <ul class="catalogue">
+                    <li><Icon type="md-flame"  class="icon_r"/>热销榜</li>
+                    <li><Icon type="md-pricetag" class="icon_y"/>优惠</li>
+                    <li class="active">热销榜</li>
+                </ul>
+             </div>
+            <div class="right fr foods-wrapper" >
                 <ul class="right_list">
                     <li v-for="i in 20" :key="i">
                         <div>
-                            <p class="list_name">优惠<span>美味又优惠，大家快来抢!</span></p>
+                            <p class="list_name">优惠
+                                <span>美味又优惠，大家快来抢!</span>
+                                <Icon type="ios-more" class="fr"/>
+                            </p>
                             <ul class="goodsListList">
                             <li class="good clearfix">
                                 <div class="good-head fl">
                                     <img src="../assets/logo.png" />
                                 </div>
-                                <div class="good-info fl">
+                                <div class="good-info fl clearfix">
                                     <span>海鲜至尊披萨<br/></span>
-                                    <span>大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹<br/></span>
+                                    <span>大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹大虾鱿鱼螃蟹</span><br>
                                     <span>月售47份</span>
                                     <span>好评率99%<br/></span>
                                     <span id="money">¥47</span><span>起</span>
-                                    <Icon type="ios-remove-circle-outline" /><span>1</span>
-                                    <button id="choose_it">选规格</button>
+                                    <button class="choose_it fr" @click="choose=true">选规格</button>
+                                    <span class="choosed fr">
+                                        <Icon type="ios-remove-circle-outline" />
+                                        <span>1</span>
+                                    </span>
                                 </div>
                             </li>
                             </ul>
@@ -70,43 +74,128 @@
                 </ul>
             </div>
         </div>
+          <!-- 蒙层 -->
+         <div class="activities" v-if="show" @click="show=false" >
+            <h2>必胜客（新世界店）</h2>
+            <!-- 这里放星星 -->
+            <p><Rate disabled allow-half v-model="valueDisabled" /></p>
+            <!-- 优惠信息 -->
+            <p class="tit">优惠信息</p>
+            <ul class="information">
+                <li><p id="n">新</p><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>      
+                <li><p id="d">减</p><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>
+                <li><p>特</p><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>
+                <li><p>特</p><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>
+                <li><p>特</p><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>
+                <li><p>特</p><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>
+            </ul>
+            <!-- 商家公告 -->
+            <p class="tit">商家公告</p>
+            <ul class="notice">
+                    <li><span>新用户下单立减20元(不与其他优惠同享）(APP专享）</span></li>   
+            </ul>
+        </div>
+         <!-- 选规格 -->
+        <div class="chooseDiv" v-if="choose">
+            <div class="choose">
+                <h2>海鲜至尊披萨</h2>
+                <Icon type="ios-close" class="choose_dele" @click="choose=false"/>
+                <h3>规格</h3>
+                <h4>铁盘</h4><h4 class="choose_on">芝士</h4><br>
+                <span class="mon">￥<span>96</span></span>
+                <p class="fr">加入购物车</p>
+            </div>
+        </div>
+        <!-- 底部购物车 -->
+        <Cart class="cart"/>
     </div>
 </template>
 
 <script>
     import Top from '../components/Top.vue';
+    import Cart from '../components/Cart.vue';
     export default {
         data() {
             return {
+                // topColor: 'rgba(255, 255, 255) !important',
+                // topBackground: 'rgba(255, 255, 255, 0)',
+                topColor: '#fff',
+                topBackground: 'transparent',
                 value:'',
                 searchClick:false,
+                valueDisabled:3.5,
+                show:false,
+                choose:false,
+                scrollY:0,
+                tops: [], // 所有右侧分类li的top组成的数组  
+                zIndex: '-1',
             };
+        },
+        created:{
+            created: function () {
+                setInterval(this.timer, 1000);
+            },
+        },
+        computed:{
+             currentIndex() {   //初始和相关数据发生变化的时候执行
+                //得到条件数据
+                const {scrollY, tops} = this
+                //根据条件计算产生一个结果
+                //回调函数,每个都是top,要找的是index
+                const index = tops.findIndex((top, index) => {
+                    return scrollY >= top && scrollY < tops[index + 1]
+                })
+                //返回结果
+                return index
+            }
         },
         components:{
             Top,
+            Cart,
         },
         methods: {
             handleSearch() {
                 this.searchClick = true;
             },
-            handleClick(){
+            handleClick() {
                 console.log('clickkkkkk');
+            },
+            handleScroll(e) {
+                const pageHeight = e.srcElement.scrollHeight;
+                const scrollTop = e.srcElement.scrollTop;
+                const headerHeight = this.$refs.header.offsetHeight;
+                // if(scrollTop >= 0 && scrollTop <= (headerHeight / 2)){
+                //     const a = scrollTop / (headerHeight / 2);
+                //     const code = 255 * (1 - a);
+                //     this.topBackground = `rgba(255,255,255,${a})`; //背景透明转白色
+                //     this.topColor = `rgba(${code},${code},${code}) !important`; //字体白转黑
+                // }
+                if(scrollTop > (headerHeight / 2)){
+                    this.topBackground = '#fff'; //背景透明转白色
+                    this.topColor = `#000 !important`; //字体白转黑
+                    this.zIndex = '1';
+                } else {
+                    this.topBackground = 'transparent'; //背景透明转白色
+                    this.topColor = `#fff !important`; //字体白转黑
+                    this.zIndex = '-1';
+                }
             }
         }
     }
 </script>
 
 <style scoped>
+    
     .shop-top {
         position: relative;
         width: 100%;
-        height: 1.8rem;
-        padding: .15rem 0 0 .15rem;
+        height: 2.8rem;
+        padding: .25rem 0 0 .25rem;
         /* 背景特效 */
-        background: url('http://fuss10.elemecdn.com/8/e4/294f46322e8ccd3e8f25ca8261f0djpeg.jpeg?imageMogr/format/webp/thumbnail/750x/thumbnail/!40p/blur/50x40/');
         font-size: .1rem;
         font-family: '微软雅黑';
         color: white;
+        background: url("http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg")
     }
     .shop-img {
         width: 1.1rem;
@@ -117,7 +206,7 @@
         height: 100%;
     }
     .shop-info {
-        margin-left: .1rem;
+        margin-left: .2rem;
         text-align: left;
         font-size: .1rem;
         font-family: "微软雅黑";
@@ -153,14 +242,28 @@
      .ivu-icon-ios-arrow-forward::before {
         font-size: .4rem;
      }
-     .wrap{display: flex;}
-     .catalogue{flex: 2;}
+     .head-shadow {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         z-index: -1;
+        background: rgba(7, 17, 27, .4);
+     }
+     .head-shadow img {
+         width: 100%;
+         height: 100%;
+         z-index: -2;
+     }
+     /* .wrap{display: flex;} */
+     .catalogue-wraper{width: 24%;height: 100%;overflow: auto;display: inline-block;}
      .catalogue li {
          position: relative;
-         height: .8rem;
          background: #F8F8F8;
-         line-height: .8rem;
-         font-size: .18rem;
+         padding: .15rem 0;
+         line-height: .5rem;
+         font-size: .22rem;
          text-align: center;
          align-items: center;
          text-align: left;
@@ -183,34 +286,85 @@
          font-size: .3rem;
          margin-right: .1rem;
      }
-     .badge {
-         position: absolute;
-         top: 0;
-         right: 0;
-         width: .25rem;
-         height: .25rem;
-         background-color: #f00;
+     .active .ivu-badge  {
+         position: absolute ;
+         top: .4rem;
+         right: .2rem;
+         width: .3rem;
+         height: .3rem;
+         border-radius: 50%;
+     }
+     .ivu-badge .ivu-badge-count{
+         font-size: .2rem;
+         z-index: 0;
+         width: .3rem;
+         height: .3rem;
          border-radius: 50%;
          text-align: center;
          align-items: center;
      }
-     .badge span {
-         position: absolute;
-         left: 0;
-         top: 0;
-         width: .25rem;
-         height: .25rem;
-         color: #00f;
-     }
-      .right{margin:0;padding: 0;width: 90%;text-align: left;flex: 7;}
-        .list_name{height: .5rem;margin:0;background: #f2f2f2;line-height: .6rem;border: 0;font-size: .27rem;color: #707070;padding-left: .15rem;font-family: '微软雅黑';}
-        .list_name span{font-size: .1rem;margin-left: .01rem; color: #9f9d9d;margin-left: .1rem;}
-        .good{height: 3rem;display: flex;justify-content: space-between;border-bottom: .01rem solid #f2f2f2;padding: .1rem 0 .3rem .15rem;}
-        .good-head{width: 1.4rem;height: 1.4rem; border: .01rem solid #999;}
-        .good-head img {width: 100%;}
-        .good-info{margin:0;padding-left: .1rem;;font-size: .1rem;color: #9f9d9d;text-align: left;}
-        .good-info span:nth-child(1){font-size:.3rem;color: black;line-height: .35rem;  }
-        .good-info p span:nth-child(3),.goodsList p span:nth-child(4){color: black;line-height: .2rem;}
-        #money{color: red;font-size: .1rem;margin-right: .03rem;line-height: .2rem;}
-        #choose_it{width:.5rem;height:.2rem;background: #3291e8;float: right;margin-right: .1rem;color: white;border: 0;border-radius:.12rem;}
+      .view .right{margin:0;padding: 0;text-align: left;width: 76%;height: 100%;}
+        .view .list_name{position: relative;height: .5rem;background: #f2f2f2;line-height: .6rem;border: 0;font-size: .27rem;color: #707070;padding-left: .15rem;font-family: '微软雅黑';}
+        .view .list_name span{font-size: .1rem;margin-left: .01rem; color: #9f9d9d;margin-left: .1rem;}
+        .ivu-icon-ios-more{position: absolute;top: 50%;right: .15rem;margin-top: -.15rem;}
+        .ivu-icon-ios-more:before{font-size: .3rem;color: #999;}
+        /* 选规格 */
+        .chooseDiv{width:100%;height: 100%;background: rgba(0,0,0,0.4);position: absolute;left: 0;top: 0;}
+        .choose {width: 4.5rem;height: 2.8rem;text-align:left;background: #fff;padding: .15rem;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: auto;border-radius: .1rem;}
+        .choose h2{font-size: .25rem;color: #000;text-align: center;margin-bottom: .3rem;line-height: .4rem;}
+        .choose h3{font-size: .19rem;color: #999;line-height: .4rem;}
+        .choose h4 {display:inline-block;padding:.1rem .2rem;margin-right:.15rem;line-height:.22rem;font-size: .19rem;color: #999;border: .01rem solid #999;border-radius: .1rem;text-align: center;align-items: center;}
+        .choose .choose_on {color: #3291e8;border:  .01rem solid #3291e8;border-radius: .1rem;}
+        .choose .choose_dele { position: absolute;top: 3%; right: 3%;}
+        .mon {font-size: .2rem;color: #FF994A;margin-top: .2rem;display: inline-block;}
+        .choose span:last-child {font-size: .3rem;font-weight:bold;color: #FF994A;margin-top: .2rem;display: inline-block;}
+        .choose p {padding: .1rem .15rem; background: #3291e8;color: white;border-radius: .2rem;display: inline-block;margin-top: .3rem;}
+        /* 食品列表 */
+        .view .good{
+            height: 2.3rem;
+            display: flex;
+            vertical-align: bottom;
+            background: #fff;
+            border-bottom: .01rem solid #f2f2f2;padding: .15rem .15rem;}
+        .view .good-head{width: 1.3rem;height: .8rem; border: .01rem solid #999;}
+        .view .good-head img {width: 100%;height: 100%;}
+        .view .good-info{padding-left: .2rem;;font-size: .18rem;color: #9f9d9d;text-align: left;}
+        .view .good-info span:nth-child(1){font-size:.28rem;color: black;line-height: .5rem;  }
+        .view .good-info span:nth-child(3),.view .good-info span:nth-child(4){display: inline-block;margin: .2rem .2rem 0 0;color: black;line-height: .2rem;}
+        .view .good-info span:nth-child(6){line-height: .4rem;}
+        .view #money{color: #FF6801;font-size: .25rem;font-weight: bold;margin-right: .1rem;line-height: .6rem;}
+        #money+span{line-height: .6rem;}
+        .view .choose_it{width: .8rem;height: .4rem;line-height:.4rem;background: #3291e8;color: white;border: 0;border-radius:.2rem;}
+        /* .choosed {} */
+        .choosed .ivu-icon-ios-remove-circle-outline:before{font-size: .3rem;line-height: .4rem;color: #a5a5a5; }
+        .choosed span {font-size: .2rem;line-height: .4rem; color: #999;padding: 0 .1rem;}
+    /* 蒙层 *//* 满减活动 */
+       .activities{background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7));position: fixed;left: 0;width: 100%;bottom: 0;top:0;z-index: 999}
+        .activities h2{color: white;text-align: center;margin-top: .7rem;font-size: .3rem;}
+        .activities ul{padding-left:1rem;color: white;line-height: .4rem}
+        .activities p:first-of-type{text-align: center;}
+        .information,.notice{font-size: .2rem;text-align: left;}
+        .information li p:nth-child(1){background: coral;border: 0;margin-right:.1rem; display: inline-block;padding: .03rem;line-height: 1;}
+        #n{background: #5e985e;}
+        #d{background: #ca737c;}
+        .information{margin-bottom: .5rem;}
+        .information span{line-height: .4rem;}
+        .tit{width: 1rem;height: .3rem;border: .01rem solid white;margin: .2rem auto;border-radius: .15rem;text-align: center;color: #fff;font-size: .2rem;line-height: .3rem;margin-bottom: .3rem;}
+        .cart {position: fixed;bottom: 0;left: 0;}
+        .cart {position: fixed;bottom: 0;left: 0;z-index: 100;}
+        .searchbox{
+        /* height: 100%; */
+        position: fixed;
+        top:.15rem;
+        left:50%;
+        width: 5rem;
+        height: .5rem;
+        line-height: .5rem;
+        margin-left: -2.5rem;
+        border-radius: .5rem;
+        background-color: #f2f2f2;
+        z-index:9;
+        text-align: center;
+        }
+       
 </style>
