@@ -94,7 +94,7 @@
   import Top from '../../components/Top.vue';
 
   export default {
-    // name: 'order',
+    name: 'order',
     components: {
       Top,
     },
@@ -112,13 +112,18 @@
     overflow: hidden;
   }
   .order-wraper h2{
-    display: flex;
+     position: fixed;
+    left: 0;
+    top: 0;
+    background: #fff;
     height: 1rem;
     font-size: .4rem;
     font-weight: bold;
     font-family: '微软雅黑';
     line-height: 1rem;
     padding-left: .15rem;
+    z-index: 10;
+    width: 100%;
   }
   .order-list {
     height: 100%;

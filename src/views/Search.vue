@@ -4,8 +4,6 @@
         <Top title="发现美食" :left="{icon:'back',path:'/index'}">
         </Top>
         <div class="search clearfix">
-            <!-- <Input suffix="ios-close" search enter-button="提交" placeholder="你是不是饿得慌" /> -->
-            <!-- <Icon type="ios-close" class="icon"/> -->
             <Input clearable placeholder="ET,你是不是饿得慌" class="fl" />
             <Button type="primary" class="fl" >提交</Button>
 
@@ -93,18 +91,17 @@ Input::placeholder {
     margin-left: .1rem;
 }
 .title {
-    height: .7rem;
+    height: .9rem;
     text-align: left;
     padding-left: .15rem;
     font-size: .3rem;
     color:black;
     font-weight: bold;
     font-family: "微软雅黑";
-    line-height: .7rem;
-    background: #F3F3F3;
+    line-height: .9rem;
 }
 .history_search_items,.hot_search_items{
-    margin:.1rem 0; 
+    margin:-.1rem 0; 
 }
 .history_search_items li,.hot_search_items li{
     display: inline-block;
@@ -115,7 +112,7 @@ Input::placeholder {
     text-align: center;
     font-size: .2rem;
     border:0;
-    border-radius: .2rem; 
+    border-radius: .1rem; 
     margin:.1rem; 
     padding: 0 .4rem;
     

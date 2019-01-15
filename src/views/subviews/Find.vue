@@ -3,22 +3,22 @@
     <h2>发现</h2>
     <div class="wrap-div">
     <div class="wrap">
-            <div class="ad">
+            <div class="ad" @click="toBuild()">
                 <img src="https://fuss10.elemecdn.com/f/08/1ab72d30ca8bd140c798387fb78eapng.png" />
             </div>
-            <div class="ad_new">
+            <div class="ad_new" @click="toBuild()">
                 <img src="https://fuss10.elemecdn.com/2/f6/36e52bca0d6db458e9855b7fc5813jpeg.jpeg?imageMogr/format/webp/thumbnail/568x/" />
             </div>
             <h2 class="title"><Icon type="ios-nutrition-outline" />为你推荐</h2>
             <h3>你的口味我都懂得</h3>
              <div class="case-div">
-               <ul class="clearfix">
+               <ul class="clearfix" @click="toBuild()">
                    <li>
                        <h3>
-                           <img src='https://fuss10.elemecdn.com/e/7c/c5eaee39fbb13aa0840a3c8b757bcpng.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/' alt="before" />
+                           <img src='https://fuss10.elemecdn.com/e/e1/de9a701f053969e42d81446ffdce7jpeg.jpeg?imageMogr/format/webp/thumbnail/176x/' alt="before" />
                         </h3>
                         <div>
-                            <h4>尊享红绘香薰牛肉披萨套餐</h4>
+                            <h4>牛肉丸麻辣烫套餐</h4>
                             <span>月售14份&nbsp;好评率100%</span><br>
                             <h5><span>￥</span>5.98</h5>
                             <h6>满25-12</h6>
@@ -42,7 +42,7 @@
                            <img src='https://fuss10.elemecdn.com/5/66/73e9feb02bf7afdaa1b444d1ef507jpeg.jpeg?imageMogr/format/webp/thumbnail/150x/' alt="before" />
                         </h3>
                         <div>
-                            <h4>尊享红绘香薰牛肉披萨套餐</h4>
+                            <h4>广东肠粉</h4>
                             <span>月售14份&nbsp;好评率100%</span><br>
                             <h5><span>￥</span>5.98</h5>
                             <h6>满25-12</h6>
@@ -54,7 +54,7 @@
                            <img src='http://fuss10.elemecdn.com/f/11/80276422c74f5c4897ff99516e86fjpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/' alt="before" />
                         </h3>
                         <div>
-                            <h4>尊享红绘香薰牛肉披萨套餐</h4>
+                            <h4>大闸蟹</h4>
                             <span>月售14份&nbsp;好评率100%</span><br>
                             <h5><span>￥</span>5.98</h5>
                             <h6>满25-12</h6>
@@ -63,7 +63,7 @@
                    </li>
                </ul>
             </div>
-            <p class="more">查看更多<Icon type="ios-arrow-forward" /></p> 
+            <p class="more" @click="toBuild()">查看更多<Icon type="ios-arrow-forward" /></p> 
     </div>
     </div>
   </div>
@@ -76,6 +76,11 @@
     components: {
       Top,
     },
+     methods:{
+      toBuild(){
+        this.$router.push('/building')
+      },
+    }
   }
 </script>
 <style>
