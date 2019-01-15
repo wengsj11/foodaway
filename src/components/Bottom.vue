@@ -20,10 +20,10 @@ export default {
           text: '外卖'
         },
         {
-          path: '/index/search',
+          path: '/index/find',
           icon: require('@/assets/icon/find.png'),
           iconSelected: require('@/assets/icon/find_s.png'),
-          text: '搜索',
+          text: '发现',
         },
         {
           path: '/index/order',

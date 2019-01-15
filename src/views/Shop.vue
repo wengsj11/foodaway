@@ -7,11 +7,11 @@
         :style="{background:topBackground,color:topColor,transition:'.3s'}">
         </Top>
         <div class="searchbox" slot="center">想吃什么搜一搜</div>
-        <mt-navbar :style="{top:'40px', position:'fixed',width:'100%',zIndex:zIndex}" ref="navbar">
+        <!-- <mt-navbar :style="{top:'40px', position:'fixed',width:'100%',zIndex:zIndex}" ref="navbar">
             <mt-tab-item id="1">点餐</mt-tab-item>
             <mt-tab-item id="2">评价</mt-tab-item>
             <mt-tab-item id="3">商家</mt-tab-item>
-        </mt-navbar>
+        </mt-navbar> -->
         <!-- header -->
         <header class="shop-top clearfix" :style="{paddingTop:'40px'}" @click="show=true" ref="header">
             <div class="shop-img fl">
@@ -34,7 +34,7 @@
                </p>
          </header>
 <!-- 商店商品 -->
-        <div class="wrap">
+        <div class="wrap clearfix">
              <div class="catalogue-wraper menu-wrapper fl">
                 <ul class="catalogue">
                     <li><Icon type="md-flame"  class="icon_r"/>热销榜</li>
@@ -130,6 +130,24 @@
                 tops: [], // 所有右侧分类li的top组成的数组  
                 zIndex: '-1',
             };
+        },
+        created:{
+            created: function () {
+                setInterval(this.timer, 1000);
+            },
+        },
+        computed:{
+             currentIndex() {   //初始和相关数据发生变化的时候执行
+                //得到条件数据
+                const {scrollY, tops} = this
+                //根据条件计算产生一个结果
+                //回调函数,每个都是top,要找的是index
+                const index = tops.findIndex((top, index) => {
+                    return scrollY >= top && scrollY < tops[index + 1]
+                })
+                //返回结果
+                return index
+            }
         },
         components:{
             Top,
@@ -333,18 +351,20 @@
         .information span{line-height: .4rem;}
         .tit{width: 1rem;height: .3rem;border: .01rem solid white;margin: .2rem auto;border-radius: .15rem;text-align: center;color: #fff;font-size: .2rem;line-height: .3rem;margin-bottom: .3rem;}
         .cart {position: fixed;bottom: 0;left: 0;}
-.searchbox{
-  /* height: 100%; */
-  position: fixed;
-  top:.15rem;
-  left:50%;
-  width: 5rem;
-  height: .5rem;
-  line-height: .5rem;
-  margin-left: -2.5rem;
-  border-radius: .5rem;
-  background-color: #f2f2f2;
-  z-index:9;
-  text-align: center;
-}
+        .cart {position: fixed;bottom: 0;left: 0;z-index: 100;}
+        .searchbox{
+        /* height: 100%; */
+        position: fixed;
+        top:.15rem;
+        left:50%;
+        width: 5rem;
+        height: .5rem;
+        line-height: .5rem;
+        margin-left: -2.5rem;
+        border-radius: .5rem;
+        background-color: #f2f2f2;
+        z-index:9;
+        text-align: center;
+        }
+       
 </style>

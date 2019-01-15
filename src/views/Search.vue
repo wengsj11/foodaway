@@ -10,9 +10,8 @@
             <Button type="primary" class="fl" >提交</Button>
 
         </div>
-        <div>
-            <h2 class="title">商家</h2>
-        </div>
+             
+
     </div>
 </template>
 <script>
@@ -33,6 +32,8 @@ export default {
 .search-page {
     text-align: left;
     background: #fff;
+    height: 100%;
+    overflow: hidden;
 }
 .search {
     width: 100%;
@@ -72,11 +73,18 @@ Input::placeholder {
 }
 .title {
     height: .7rem;
+    text-align: center;
     padding-left: .15rem;
     font-size: .3rem;
     color: #666;
     font-family: "微软雅黑";
     line-height: .6rem;
-    background: #F3F3F3;
 }
+.ivu-icon-ios-nutrition-outline:before {
+    font-size: .6rem;
+    color: #666;
+    line-height: .4rem;
+}
+
+
 </style>
