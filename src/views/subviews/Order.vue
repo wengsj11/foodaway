@@ -2,7 +2,7 @@
 
 <div class="order-wraper " >
   <h2>历史订单</h2>
-  <ul class="order-list">
+  <ul class="order-list" @click="toBuild()">
     <li class="order clearfix">
       <div class="order-img fl">
         <div><img src="https://fuss10.elemecdn.com/0/0a/54dd7d402f229aac635be66c3afe7jpeg.jpeg?imageMogr/format/webp/thumbnail/!140x140r/gravity/Center/crop/140x140/"></div>
@@ -94,10 +94,16 @@
   import Top from '../../components/Top.vue';
 
   export default {
-    name: 'order',
+    // name: 'order',
     components: {
       Top,
     },
+    
+    methods:{
+      toBuild(){
+        this.$router.push('/building')
+      },
+    }
   }
 </script>
 <style scope>
@@ -109,7 +115,7 @@
   .order-wraper h2{
     display: flex;
     height: 1rem;
-    font-size: .3rem;
+    font-size: .4rem;
     font-weight: bold;
     font-family: '微软雅黑';
     line-height: 1rem;

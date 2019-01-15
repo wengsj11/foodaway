@@ -10,6 +10,7 @@ import Profile from './views/subviews/Profile.vue';
 import Login from './views/Login.vue';
 import Shop from './views/Shop.vue';
 import Search from './views/Search.vue';
+import build from './views/Build.vue';
 import goodList from './components/goodList.vue';
 
 Vue.use(Router);
@@ -63,6 +64,11 @@ export default new Router({
       path: '/goodList',
       name: 'goodList',
       component: goodList,
+    },
+    {
+      path: '/building',
+      name: 'build',
+      component: build,
     },
   ],
 });
