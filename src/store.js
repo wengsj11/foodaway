@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { MessageBox } from 'mint-ui';
 import api from './api/server';
 
 Vue.use(Vuex);
@@ -22,6 +23,7 @@ export default new Vuex.Store({
           commit('setUserInfo', data.data);
         } else {
           console.log(data.msg);
+          MessageBox('提示', data.msg);
         }
       });
     },
@@ -33,6 +35,7 @@ export default new Vuex.Store({
           commit('setUserInfo', data.data);
         } else {
           console.log(data.msg);
+          MessageBox('提示', data.msg);
         }
       });
     },

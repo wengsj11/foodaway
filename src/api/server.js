@@ -2,19 +2,20 @@ import axios from 'axios';
 /**
   axios数据接口
 */
+const host = 'http://192.169.137.1:3000';
 const apiService = {
   getMenusData() {
-    return axios.get('http://localhost:3000/menus');
+    return axios.get(`${host}/menus`);
   },
   getRestaurantsData(page, csid) {
-    let url = 'http://localhost:3000/restaurants?page=' + page;
-    url += (csid ? '&csid=' + csid : '');
+    let url = `${host}/restaurants?page=${page}`;
+    url += (csid ? (`&csid=${csid}`) : '');
     return axios.get(url);
   },
   loginByCode(phone, code) {
     return axios({
       method: 'post',
-      url: 'http://localhost:3000/login/code',
+      url: `${host}/login/code`,
       data: {
         phone,
         code,
@@ -24,7 +25,7 @@ const apiService = {
   loginByPwd(account, password) {
     return axios({
       method: 'post',
-      url: 'http://localhost:3000/login/pwd',
+      url: `${host}/login/pwd`,
       data: {
         account,
         password,
