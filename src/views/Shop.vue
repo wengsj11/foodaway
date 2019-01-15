@@ -7,11 +7,11 @@
         :style="{background:topBackground,color:topColor,transition:'.3s'}">
         </Top>
         <div class="searchbox" slot="center">想吃什么搜一搜</div>
-        <!-- <mt-navbar :style="{top:'40px', position:'fixed',width:'100%',zIndex:zIndex}" ref="navbar">
+        <mt-navbar :style="{top:'40px', position:'fixed',width:'100%',zIndex:zIndex}" ref="navbar">
             <mt-tab-item id="1">点餐</mt-tab-item>
             <mt-tab-item id="2">评价</mt-tab-item>
             <mt-tab-item id="3">商家</mt-tab-item>
-        </mt-navbar> -->
+        </mt-navbar>
         <!-- header -->
         <header class="shop-top clearfix" :style="{paddingTop:'40px'}" @click="show=true" ref="header">
             <div class="shop-img fl">

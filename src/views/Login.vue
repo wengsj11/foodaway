@@ -75,7 +75,7 @@ export default {
                  }
              },1000)
              //发送验证码api
-             axios.get('http://localhost:3000/code?phone='+this.phone).then((res)=>{
+            api.getloginCode(this.phone).then((res)=>{
                 const data = res.data;
                 if(data.status === 1){
                     console.log(data.msg);
