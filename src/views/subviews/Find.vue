@@ -75,7 +75,7 @@
     },
   }
 </script>
-<style>
+<style scoped>
 .view{background: #fff;height: 100%;}
 .view>h2{
   position: fixed;
