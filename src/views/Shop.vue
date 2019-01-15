@@ -1,23 +1,19 @@
 <template>
-    <div class="view" :style="{padding:'0'}">
+    <div class="view body-container" :style="{padding:'0'}" @scroll="handleScroll">
         <Top
         :left="{path:'/index',icon:'back'}"
         :right="{icon:'more',click:handleClick}"
         :fixed="true"
-        :style="{background:'transparent'}"></Top>
-        <!-- <mt-header fixed :style="{background:'transparent'}">
-            <router-link to="/index" slot="left">
-                <mt-button icon="back"></mt-button>
-            </router-link>
-            <template  slot="right">
-                <router-link to="/search">
-                    <mt-button icon="search"></mt-button>
-                </router-link>
-                <mt-button icon="more"></mt-button>
-            </template>
-        </mt-header> -->
+        :style="{background:topBackground,color:topColor,transition:'.3s'}">
+        </Top>
+        <div class="searchbox" slot="center">想吃什么搜一搜</div>
+        <!-- <mt-navbar :style="{top:'40px', position:'fixed',width:'100%',zIndex:zIndex}" ref="navbar">
+            <mt-tab-item id="1">点餐</mt-tab-item>
+            <mt-tab-item id="2">评价</mt-tab-item>
+            <mt-tab-item id="3">商家</mt-tab-item>
+        </mt-navbar> -->
         <!-- header -->
-        <header class="shop-top clearfix" :style="{paddingTop:'40px'}" @click="show=true">
+        <header class="shop-top clearfix" :style="{paddingTop:'40px'}" @click="show=true" ref="header">
             <div class="shop-img fl">
                 <img src="" />
             </div>
@@ -121,6 +117,10 @@
     export default {
         data() {
             return {
+                // topColor: 'rgba(255, 255, 255) !important',
+                // topBackground: 'rgba(255, 255, 255, 0)',
+                topColor: '#fff',
+                topBackground: 'transparent',
                 value:'',
                 searchClick:false,
                 valueDisabled:3.5,
@@ -128,6 +128,7 @@
                 choose:false,
                 scrollY:0,
                 tops: [], // 所有右侧分类li的top组成的数组  
+                zIndex: '-1',
             };
         },
         created:{
@@ -152,14 +153,43 @@
             Top,
             Cart,
         },
-   }
+        methods: {
+            handleSearch() {
+                this.searchClick = true;
+            },
+            handleClick() {
+                console.log('clickkkkkk');
+            },
+            handleScroll(e) {
+                const pageHeight = e.srcElement.scrollHeight;
+                const scrollTop = e.srcElement.scrollTop;
+                const headerHeight = this.$refs.header.offsetHeight;
+                // if(scrollTop >= 0 && scrollTop <= (headerHeight / 2)){
+                //     const a = scrollTop / (headerHeight / 2);
+                //     const code = 255 * (1 - a);
+                //     this.topBackground = `rgba(255,255,255,${a})`; //背景透明转白色
+                //     this.topColor = `rgba(${code},${code},${code}) !important`; //字体白转黑
+                // }
+                if(scrollTop > (headerHeight / 2)){
+                    this.topBackground = '#fff'; //背景透明转白色
+                    this.topColor = `#000 !important`; //字体白转黑
+                    this.zIndex = '1';
+                } else {
+                    this.topBackground = 'transparent'; //背景透明转白色
+                    this.topColor = `#fff !important`; //字体白转黑
+                    this.zIndex = '-1';
+                }
+            }
+        }
+    }
 </script>
 
 <style scoped>
+    
     .shop-top {
         position: relative;
         width: 100%;
-        height: 2.4rem;
+        height: 2.8rem;
         padding: .25rem 0 0 .25rem;
         /* 背景特效 */
         font-size: .1rem;
@@ -320,6 +350,21 @@
         .information{margin-bottom: .5rem;}
         .information span{line-height: .4rem;}
         .tit{width: 1rem;height: .3rem;border: .01rem solid white;margin: .2rem auto;border-radius: .15rem;text-align: center;color: #fff;font-size: .2rem;line-height: .3rem;margin-bottom: .3rem;}
+        .cart {position: fixed;bottom: 0;left: 0;}
         .cart {position: fixed;bottom: 0;left: 0;z-index: 100;}
+        .searchbox{
+        /* height: 100%; */
+        position: fixed;
+        top:.15rem;
+        left:50%;
+        width: 5rem;
+        height: .5rem;
+        line-height: .5rem;
+        margin-left: -2.5rem;
+        border-radius: .5rem;
+        background-color: #f2f2f2;
+        z-index:9;
+        text-align: center;
+        }
        
 </style>
