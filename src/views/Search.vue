@@ -94,7 +94,7 @@ Input::placeholder {
 }
 .title {
     height: .7rem;
-    text-align: center;
+    text-align: left;
     padding-left: .15rem;
     font-size: .3rem;
     color:black;
@@ -103,12 +103,15 @@ Input::placeholder {
     line-height: .7rem;
     background: #F3F3F3;
 }
+.history_search_items,.hot_search_items{
+    margin:.1rem 0; 
+}
 .history_search_items li,.hot_search_items li{
     display: inline-block;
-    height: .8rem;
+    height: .7rem;
     flex: 1;
     background: #f7f7f7;
-    line-height: .8rem;
+    line-height: .7rem;
     text-align: center;
     font-size: .2rem;
     border:0;
